@@ -1,7 +1,7 @@
 #include "buttons.h"
 
 
-void buttons_updateLoop(Clock *a, TaskHandle_t *t) 
+void buttons_update(Clock *a, TaskHandle_t *t) 
 {
     TickType_t last_wake_time = xTaskGetTickCount();
     enum State editMode = EDIT_MODE_NONE;
@@ -35,7 +35,7 @@ void buttons_updateLoop(Clock *a, TaskHandle_t *t)
 #ifdef DEBUG
                         ESP_LOGI("Button", "JASNOSC LEWY ODKLIKNIETY");
 #endif
-                        decIntensity(a);
+                        clock_dec_intensity(a);
                         max7219_changeIntensity(a->intensity);
 
                         state = 0;
@@ -63,7 +63,7 @@ void buttons_updateLoop(Clock *a, TaskHandle_t *t)
 #else
                         vTaskSuspend(*(t));
 #endif
-                        subM(a);
+                        clock_sub_minute(a);
                         max7219_displayTime((uint8_t *)a->timeChars);
                         max7219_underline(1);
 
@@ -88,7 +88,7 @@ void buttons_updateLoop(Clock *a, TaskHandle_t *t)
 #ifdef DEBUG
                         ESP_LOGI("Button", "JASNOSC PRAWY ODKLIKNIETY");
 #endif
-                        incIntensity(a);
+                        clock_inc_intensity(a);
                         max7219_changeIntensity(a->intensity); 
 
                         state = 0;
@@ -127,7 +127,7 @@ void buttons_updateLoop(Clock *a, TaskHandle_t *t)
 #ifdef DEBUG
                         ESP_LOGI("Button", "GODZINY LEWY ODKLIKNIETY");
 #endif
-                        subH(a);
+                        clock_sub_hour(a);
                         max7219_displayTime( (uint8_t *)a->timeChars); 
                         state = 0;
                     }
@@ -172,8 +172,8 @@ void buttons_updateLoop(Clock *a, TaskHandle_t *t)
                         ESP_LOGI("Button", "GODZINY PRAWY ODKLIKNIETY");
 #endif
 
-                        addH(a);
-                        max7219_displayTime( (uint8_t *)a->timeChars); 
+                        clock_add_hour(a);
+                        max7219_displayTime((uint8_t *)a->timeChars); 
                         state = 0;
                     }
                     else state = 8;
@@ -210,7 +210,7 @@ void buttons_updateLoop(Clock *a, TaskHandle_t *t)
     ESP_LOGI("Button", "MINUTY LEWY ODKLIKNIETY");
 #endif
 
-                        subM(a); 
+                        clock_sub_minute(a); 
                         max7219_displayTime((uint8_t *)a->timeChars);
                         state = 0;
                     }
@@ -259,7 +259,7 @@ void buttons_updateLoop(Clock *a, TaskHandle_t *t)
 #ifdef DEBUG
                         ESP_LOGI("Button", "MINUTY PRAWY ODKLIKNIETY");
 #endif
-                        addM(a);
+                        clock_add_minute(a);
                         max7219_displayTime( (uint8_t *)a->timeChars);
                         state = 0;
                     }

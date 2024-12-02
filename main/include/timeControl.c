@@ -1,14 +1,14 @@
 #include "timeControl.h"
 
 
-esp_err_t initT(Clock *a)
+esp_err_t clock_init(Clock *a)
 {
     esp_err_t ret;
 
     for(uint8_t i = 0; i < 4; ++i)
     {
         a->time[i] = i;
-        UpdateTimeChar(i, a);
+        clock_update_timeChar(i, a);
     }
 
     a->intensity = 0x02;
@@ -30,7 +30,7 @@ esp_err_t initT(Clock *a)
     return ret;
 }
 
-bool incIntensity(Clock *a)
+bool clock_inc_intensity(Clock *a)
 {
     if(a->intensity < 0x0F)
     {
@@ -43,7 +43,7 @@ bool incIntensity(Clock *a)
     return false;
 }
 
-bool decIntensity(Clock *a)
+bool clock_dec_intensity(Clock *a)
 {
     if(a->intensity > 0x00)
     {
@@ -56,12 +56,12 @@ bool decIntensity(Clock *a)
     return false;
 }
 
-void setIntensity(Clock *a,const uint8_t i)
+void clock_set_intensity(Clock *a,const uint8_t i)
 {
     return;
 }
 
-void UpdateTimeChar(const uint8_t place, Clock *a)
+void clock_update_timeChar(const uint8_t place, Clock *a)
 {
     uint8_t digit = a->time[place];
     for(uint8_t i = 0; i < 8; ++i)
@@ -70,115 +70,115 @@ void UpdateTimeChar(const uint8_t place, Clock *a)
     }
 }
 
-bool addM(Clock *a)
+bool clock_add_minute(Clock *a)
 {
     if(a->time[3] >= 9)
     {
         a->time[3] = 0;  
-        UpdateTimeChar(3, a);
+        clock_update_timeChar(3, a);
 
         if(a->time[2] >= 5)
         {
             a->time[2] = 0;
-            UpdateTimeChar(2, a);
+            clock_update_timeChar(2, a);
             return true;
         }
         else
         {
             a->time[2] += 1;
-            UpdateTimeChar(2, a);
+            clock_update_timeChar(2, a);
         }
     }
     else
     {
         a->time[3] += 1;
-        UpdateTimeChar(3, a);
+        clock_update_timeChar(3, a);
     }
     return false;
 }
 
-bool addH(Clock *a)
+bool clock_add_hour(Clock *a)
 {
     if(a->time[0] <= 1 && a->time[1] >= 9)
     {
         a->time[1] = 0;
-        UpdateTimeChar(1, a);
+        clock_update_timeChar(1, a);
         a->time[0] += 1;
-        UpdateTimeChar(0, a);
+        clock_update_timeChar(0, a);
     }
     else if(a->time[0] >= 2 && a->time[1] >= 3)
     {
         a->time[1] = 0;
-        UpdateTimeChar(1, a);
+        clock_update_timeChar(1, a);
         a->time[0] = 0;
-        UpdateTimeChar(0, a);
+        clock_update_timeChar(0, a);
         return true;
     }
     else
     {
         a->time[1] += 1;
-        UpdateTimeChar(1, a);
+        clock_update_timeChar(1, a);
     }
     return false;
 }
 
-void subM(Clock *a)
+void clock_sub_minute(Clock *a)
 {
     if(a->time[2] == 0 && a->time[3] == 0)
     {
         a->time[2] = 5;
-        UpdateTimeChar(2, a);
+        clock_update_timeChar(2, a);
         a->time[3] = 9;
-        UpdateTimeChar(3, a);
+        clock_update_timeChar(3, a);
     }
     else
     {
         if(a->time[3] == 0)
         {
             a->time[2] -= 1;
-            UpdateTimeChar(2, a);
+            clock_update_timeChar(2, a);
             a->time[3] = 9;
-            UpdateTimeChar(3, a);
+            clock_update_timeChar(3, a);
         }
         else
         {
             a->time[3] -= 1;
-            UpdateTimeChar(3, a);
+            clock_update_timeChar(3, a);
         }
     }
 }
 
-void subH(Clock *a)
+void clock_sub_hour(Clock *a)
 {
     if(a->time[0] == 0 && a->time[1] == 0)
     {
         a->time[0] = 2;
-        UpdateTimeChar(2, a);
+        clock_update_timeChar(2, a);
         a->time[1] = 3;
-        UpdateTimeChar(1, a);
+        clock_update_timeChar(1, a);
     }
     else
     {
         if(a->time[1] == 0)
         {
             a->time[1] = 9;
-            UpdateTimeChar(1, a);
+            clock_update_timeChar(1, a);
             a->time[0] -= 1;
-            UpdateTimeChar(0, a);
+            clock_update_timeChar(0, a);
         }
         else
         {
             a->time[1] -= 1;
-            UpdateTimeChar(1, a);
+            clock_update_timeChar(1, a);
         }
     }
 }
 
-void count(Clock *a)
+void clock_update(Clock *a)
 {
-    if(addM(a))
+    if(clock_add_minute(a))
     {
-        addH(a);
+        clock_add_hour(a);
     }
 }
 
@@ -216,7 +216,7 @@ void dummy(Clock *a)
     {
         BLOCK_UNTIL(
             ESP_ERROR_CHECK(max7219_displayTime((uint8_t *)a->timeChars));
-            count(a);
+            clock_update(a);
             ,a->ready
         );
 
