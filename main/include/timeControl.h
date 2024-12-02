@@ -122,18 +122,21 @@ static const uint8_t digits[10][8] __attribute__((section(".rodata"))) =  {
 typedef struct{
     uint8_t time[4];
     uint8_t timeChars[4][8];
-    uint8_t ready;
+    bool ready;
     uint8_t intensity;
 }Clock;
 
-void initT(Clock *a/*, spi_device_handle_t *spi*/);
+esp_err_t initT(Clock *a);
+inline bool incIntensity(Clock *a);
+inline bool decIntensity(Clock *a);
+inline void setIntensity(Clock *a, const uint8_t i) __attribute__((weak));
 void UpdateTimeChar(const uint8_t place, Clock *a);
 bool addM(Clock *a);
 bool addH(Clock *a);
 void subM(Clock *a);
 void subH(Clock *a);
 void count(Clock *a);
-void Clock_Loop(void *);
+void Clock_Loop(void *); // deprecated
 void dummy(Clock *);
 
 #endif

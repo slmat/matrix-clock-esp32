@@ -10,14 +10,14 @@
 #include "include/buttons.h"
 
 Clock t;
-// spi_device_handle_t spi;
-TaskHandle_t timeHandle;
-uint8_t ass[2];    
+TaskHandle_t clockHandle;    
 
 void app_main(void)
 {
-    initT(&t/*, &spi*/);
-    xTaskCreatePinnedToCore(dummy, "time utils", DISPLAY_STACK, &t, 1, &timeHandle, 0);
-    buttons_init();
-    buttons_updateLoop(&t, &timeHandle);
+    ESP_ERROR_CHECK(initT(&t));
+    ESP_ERROR_CHECK(buttons_init());
+
+    xTaskCreatePinnedToCore(dummy, "Clock", DISPLAY_STACK, &t, CLOCK_PRIORITY, &clockHandle, CORE);
+
+    buttons_updateLoop(&t, &clockHandle);
 }

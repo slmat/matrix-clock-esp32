@@ -1,25 +1,64 @@
 #include "timeControl.h"
 
 
-void initT(Clock *a/*, spi_device_handle_t *spi*/)
+esp_err_t initT(Clock *a)
 {
-    a->time[0] = 1;
-    a->time[1] = 0;
-    a->time[2] = 0;
-    a->time[3] = 8;
+    esp_err_t ret;
 
     for(uint8_t i = 0; i < 4; ++i)
     {
-    UpdateTimeChar(i, a);
+        a->time[i] = i;
+        UpdateTimeChar(i, a);
     }
-    a->ready = 0;
+
     a->intensity = 0x02;
-    SPI_init();
-    max7219_init();
-    max7219_clear();
-    #ifdef DEBUG
+
+    ret = SPI_init();
+    if(ret) return ret;
+
+    ret = max7219_init();
+    if(ret) return ret;
+
+    ret = max7219_clear();
+    if(ret) return ret;
+
+    a->ready = true;
+
+#ifdef DEBUG
         ESP_LOGI("Clock", "zainicjalizowany");
-    #endif
+#endif
+    return ret;
+}
+
+bool incIntensity(Clock *a)
+{
+    if(a->intensity < 0x0F)
+    {
+        a->intensity += 1;
+    }
+    else
+    {
+        return true;
+    }
+    return false;
+}
+
+bool decIntensity(Clock *a)
+{
+    if(a->intensity > 0x00)
+    {
+        a->intensity -= 1;
+    }
+    else 
+    {
+        return true;
+    }
+    return false;
+}
+
+void setIntensity(Clock *a,const uint8_t i)
+{
+    return;
 }
 
 void UpdateTimeChar(const uint8_t place, Clock *a)
@@ -29,7 +68,6 @@ void UpdateTimeChar(const uint8_t place, Clock *a)
     {
         a->timeChars[place][i] = digits[digit][i];
     }
-    a->ready = 0;
 }
 
 bool addM(Clock *a)
@@ -138,15 +176,14 @@ void subH(Clock *a)
 
 void count(Clock *a)
 {
-
-            if(addM(a))
-            {
-                addH(a);
-            }
+    if(addM(a))
+    {
+        addH(a);
+    }
 }
 
 void CLock_loop(void *t)
-{
+{/*
     Clock *a = (Clock *)t;
     TickType_t last = xTaskGetTickCount();
     while(1)
@@ -159,7 +196,7 @@ void CLock_loop(void *t)
         }
         else
         {
-            if(a->ready == 2)
+            if(a->ready == true)
             {
                 last = xTaskGetTickCount();
                 a->ready = 0;
@@ -170,31 +207,23 @@ void CLock_loop(void *t)
             }
         }
     }
-}
-
+*/}
 
 void dummy(Clock *a)
 {
     TickType_t last = xTaskGetTickCount();
     while(1)
     {
-        if(a->ready == 0){
-            a->ready = 1;
-            max7219_displayTime((uint8_t *)a->timeChars);
+        BLOCK_UNTIL(
+            ESP_ERROR_CHECK(max7219_displayTime((uint8_t *)a->timeChars));
             count(a);
-            a->ready = 0;
-            #ifdef DEBUG
-            ESP_LOGI("ASS", "%d%d:%d%d", a->time[0], a->time[1], a->time[2],a->time[3]);
-            vTaskDelayUntil(&last, pdMS_TO_TICKS(60000));
-            #else
-            vTaskDelayUntil(&last, pdMS_TO_TICKS(60000));
-            #endif
+            ,a->ready
+        );
 
-        }
-        else
-        {
-            vTaskDelay(20);
-        }
+#ifdef DEBUG
+        ESP_LOGI("Clock", "%d%d:%d%d", a->time[0], a->time[1], a->time[2],a->time[3]);
+#endif
+        vTaskDelayUntil(&last, pdMS_TO_TICKS(60000));
     }
     
 }
