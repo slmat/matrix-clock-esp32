@@ -1,8 +1,8 @@
 /**
  * @file main.c
  * @brief Główny plik programu dla aplikacji zarządzającej zegarem i przyciskami z użyciem ESP-IDF.
- * @author Jan Kowalski
- * @author Anna Nowak
+ * @author Sławomir Matonóg
+ * @author Maciej Szymonek
  * @date 2024-12-04
  */
 
