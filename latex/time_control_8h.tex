@@ -1,0 +1,248 @@
+\doxysection{main/include/time\+Control.h File Reference}
+\hypertarget{time_control_8h}{}\label{time_control_8h}\index{main/include/timeControl.h@{main/include/timeControl.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}max7219.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_clock}{Clock}}
+\begin{DoxyCompactList}\small\item\em Struktura przechowująca aktualny czas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{time_control_8h_a4ec981495c6372c2f04ce52bca434cb9}{clock\+\_\+init}} (\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Inicjalizuje wartości początkowe zegara. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{time_control_8h_aae204ca3e63eced9e5620a1194d0ce5d}{clock\+\_\+inc\+\_\+intensity}} (\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Zwiększa jasność wyświetlacza o 1. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{time_control_8h_a131395ff042f0666c1a76152c2d3d0c0}{clock\+\_\+dec\+\_\+intensity}} (\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Zmniejsza jasność wyświetlacza o 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{time_control_8h_ac38ee77cd742636f418bd59b526e2b0f}{clock\+\_\+set\+\_\+intensity}} (\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}a, const uint8\+\_\+t i) \+\_\+\+\_\+attribute\+\_\+\+\_\+((weak))
+\begin{DoxyCompactList}\small\item\em Ustawia jasność wyświetlacza na podaną wartość. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{time_control_8h_a6fbf1bb7e46efd605beb40040e5902a5}{clock\+\_\+update\+\_\+time\+Char}} (const uint8\+\_\+t place, \mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Aktualizuje graficzną reprezentację cyfry w zegarze. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{time_control_8h_ad612bdab8a99164b5253a10e1ac507ac}{clock\+\_\+add\+\_\+minute}} (\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Zwiększa liczbę minut o 1. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{time_control_8h_a8620a510032156ba8feae8be261492fc}{clock\+\_\+add\+\_\+hour}} (\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Zwiększa liczbę godzin o 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{time_control_8h_ad9866f3308331d317a8d699954b64252}{clock\+\_\+sub\+\_\+minute}} (\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Zmniejsza liczbę minut o 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{time_control_8h_ae455bdf82fa6c5db9499fe9a0d874c06}{clock\+\_\+sub\+\_\+hour}} (\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Zmniejsza liczbę godzin o 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{time_control_8h_a9f0c5f9a6781b6b36aa421ffa2f6080c}{clock\+\_\+update}} (\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Aktualizuje czas w zegarze. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{time_control_8h_a72f96aa59ad26e7e627ec5d5cd1fc56d}{Clock\+\_\+\+Loop}} (void \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Funkcja, która jest nieużywana w aktualnym kodzie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{time_control_8h_af69ecacc75a3e4ea0bea044765736793}{dummy}} (\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Funkcja wykonująca zadanie odświeżania wyświetlacza. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{time_control_8h_a8620a510032156ba8feae8be261492fc}\index{timeControl.h@{timeControl.h}!clock\_add\_hour@{clock\_add\_hour}}
+\index{clock\_add\_hour@{clock\_add\_hour}!timeControl.h@{timeControl.h}}
+\doxysubsubsection{\texorpdfstring{clock\_add\_hour()}{clock\_add\_hour()}}
+{\footnotesize\ttfamily \label{time_control_8h_a8620a510032156ba8feae8be261492fc} 
+bool clock\+\_\+add\+\_\+hour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Zwiększa liczbę godzin o 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Wskaźnik na strukturę zegara do aktualizacji. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, jeśli operacja się powiodła, false w przeciwnym razie. 
+\end{DoxyReturn}
+\Hypertarget{time_control_8h_ad612bdab8a99164b5253a10e1ac507ac}\index{timeControl.h@{timeControl.h}!clock\_add\_minute@{clock\_add\_minute}}
+\index{clock\_add\_minute@{clock\_add\_minute}!timeControl.h@{timeControl.h}}
+\doxysubsubsection{\texorpdfstring{clock\_add\_minute()}{clock\_add\_minute()}}
+{\footnotesize\ttfamily \label{time_control_8h_ad612bdab8a99164b5253a10e1ac507ac} 
+bool clock\+\_\+add\+\_\+minute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Zwiększa liczbę minut o 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Wskaźnik na strukturę zegara do aktualizacji. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, jeśli operacja się powiodła, false w przeciwnym razie. 
+\end{DoxyReturn}
+\Hypertarget{time_control_8h_a131395ff042f0666c1a76152c2d3d0c0}\index{timeControl.h@{timeControl.h}!clock\_dec\_intensity@{clock\_dec\_intensity}}
+\index{clock\_dec\_intensity@{clock\_dec\_intensity}!timeControl.h@{timeControl.h}}
+\doxysubsubsection{\texorpdfstring{clock\_dec\_intensity()}{clock\_dec\_intensity()}}
+{\footnotesize\ttfamily \label{time_control_8h_a131395ff042f0666c1a76152c2d3d0c0} 
+bool clock\+\_\+dec\+\_\+intensity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zmniejsza jasność wyświetlacza o 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Wskaźnik na strukturę zegara do aktualizacji. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, jeśli operacja się powiodła, false w przeciwnym razie. 
+\end{DoxyReturn}
+\Hypertarget{time_control_8h_aae204ca3e63eced9e5620a1194d0ce5d}\index{timeControl.h@{timeControl.h}!clock\_inc\_intensity@{clock\_inc\_intensity}}
+\index{clock\_inc\_intensity@{clock\_inc\_intensity}!timeControl.h@{timeControl.h}}
+\doxysubsubsection{\texorpdfstring{clock\_inc\_intensity()}{clock\_inc\_intensity()}}
+{\footnotesize\ttfamily \label{time_control_8h_aae204ca3e63eced9e5620a1194d0ce5d} 
+bool clock\+\_\+inc\+\_\+intensity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zwiększa jasność wyświetlacza o 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Wskaźnik na strukturę zegara do aktualizacji. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, jeśli operacja się powiodła, false w przeciwnym razie. 
+\end{DoxyReturn}
+\Hypertarget{time_control_8h_a4ec981495c6372c2f04ce52bca434cb9}\index{timeControl.h@{timeControl.h}!clock\_init@{clock\_init}}
+\index{clock\_init@{clock\_init}!timeControl.h@{timeControl.h}}
+\doxysubsubsection{\texorpdfstring{clock\_init()}{clock\_init()}}
+{\footnotesize\ttfamily \label{time_control_8h_a4ec981495c6372c2f04ce52bca434cb9} 
+esp\+\_\+err\+\_\+t clock\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Inicjalizuje wartości początkowe zegara. 
+
+Nadpisuje tablicę znaków w strukturze \doxylink{struct_clock}{Clock}, aby od razu po włączeniu wyświetlać czas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Wskaźnik na strukturę zegara. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Kod błędu w przypadku problemów. 
+\end{DoxyReturn}
+\Hypertarget{time_control_8h_a72f96aa59ad26e7e627ec5d5cd1fc56d}\index{timeControl.h@{timeControl.h}!Clock\_Loop@{Clock\_Loop}}
+\index{Clock\_Loop@{Clock\_Loop}!timeControl.h@{timeControl.h}}
+\doxysubsubsection{\texorpdfstring{Clock\_Loop()}{Clock\_Loop()}}
+{\footnotesize\ttfamily \label{time_control_8h_a72f96aa59ad26e7e627ec5d5cd1fc56d} 
+void Clock\+\_\+\+Loop (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja, która jest nieużywana w aktualnym kodzie. 
+
+Ta funkcja została zachowana w kodzie ze względu na problem z kompilacją programu, który wystąpił podczas próby użycia jej jako argumentu w funkcji {\ttfamily x\+Task\+Create}. Po zduplikowaniu i zmianie nazwy na {\ttfamily dummy}, kompilacja przebiegła pomyślnie.
+
+\begin{DoxyNote}{Note}
+Zobacz funkcję {\ttfamily \doxylink{time_control_8h_af69ecacc75a3e4ea0bea044765736793}{dummy()}}. 
+\end{DoxyNote}
+\Hypertarget{time_control_8h_ac38ee77cd742636f418bd59b526e2b0f}\index{timeControl.h@{timeControl.h}!clock\_set\_intensity@{clock\_set\_intensity}}
+\index{clock\_set\_intensity@{clock\_set\_intensity}!timeControl.h@{timeControl.h}}
+\doxysubsubsection{\texorpdfstring{clock\_set\_intensity()}{clock\_set\_intensity()}}
+{\footnotesize\ttfamily \label{time_control_8h_ac38ee77cd742636f418bd59b526e2b0f} 
+void clock\+\_\+set\+\_\+intensity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{const uint8\+\_\+t}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ustawia jasność wyświetlacza na podaną wartość. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Wskaźnik na strukturę zegara do aktualizacji. \\
+\hline
+{\em i} & Wartość intensywności (0-\/15). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{time_control_8h_ae455bdf82fa6c5db9499fe9a0d874c06}\index{timeControl.h@{timeControl.h}!clock\_sub\_hour@{clock\_sub\_hour}}
+\index{clock\_sub\_hour@{clock\_sub\_hour}!timeControl.h@{timeControl.h}}
+\doxysubsubsection{\texorpdfstring{clock\_sub\_hour()}{clock\_sub\_hour()}}
+{\footnotesize\ttfamily \label{time_control_8h_ae455bdf82fa6c5db9499fe9a0d874c06} 
+void clock\+\_\+sub\+\_\+hour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Zmniejsza liczbę godzin o 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Wskaźnik na strukturę zegara do aktualizacji. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{time_control_8h_ad9866f3308331d317a8d699954b64252}\index{timeControl.h@{timeControl.h}!clock\_sub\_minute@{clock\_sub\_minute}}
+\index{clock\_sub\_minute@{clock\_sub\_minute}!timeControl.h@{timeControl.h}}
+\doxysubsubsection{\texorpdfstring{clock\_sub\_minute()}{clock\_sub\_minute()}}
+{\footnotesize\ttfamily \label{time_control_8h_ad9866f3308331d317a8d699954b64252} 
+void clock\+\_\+sub\+\_\+minute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Zmniejsza liczbę minut o 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Wskaźnik na strukturę zegara do aktualizacji. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{time_control_8h_a9f0c5f9a6781b6b36aa421ffa2f6080c}\index{timeControl.h@{timeControl.h}!clock\_update@{clock\_update}}
+\index{clock\_update@{clock\_update}!timeControl.h@{timeControl.h}}
+\doxysubsubsection{\texorpdfstring{clock\_update()}{clock\_update()}}
+{\footnotesize\ttfamily \label{time_control_8h_a9f0c5f9a6781b6b36aa421ffa2f6080c} 
+void clock\+\_\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Aktualizuje czas w zegarze. 
+
+Wywołuje funkcje odpowiedzialne za dodanie minuty i ewentualnie godziny.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Wskaźnik na strukturę zegara do aktualizacji. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{time_control_8h_a6fbf1bb7e46efd605beb40040e5902a5}\index{timeControl.h@{timeControl.h}!clock\_update\_timeChar@{clock\_update\_timeChar}}
+\index{clock\_update\_timeChar@{clock\_update\_timeChar}!timeControl.h@{timeControl.h}}
+\doxysubsubsection{\texorpdfstring{clock\_update\_timeChar()}{clock\_update\_timeChar()}}
+{\footnotesize\ttfamily \label{time_control_8h_a6fbf1bb7e46efd605beb40040e5902a5} 
+void clock\+\_\+update\+\_\+time\+Char (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{place}{, }\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Aktualizuje graficzną reprezentację cyfry w zegarze. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em place} & Miejsce cyfry do odświeżenia (0-\/3). \\
+\hline
+{\em a} & Wskaźnik na strukturę zegara do aktualizacji. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{time_control_8h_af69ecacc75a3e4ea0bea044765736793}\index{timeControl.h@{timeControl.h}!dummy@{dummy}}
+\index{dummy@{dummy}!timeControl.h@{timeControl.h}}
+\doxysubsubsection{\texorpdfstring{dummy()}{dummy()}}
+{\footnotesize\ttfamily \label{time_control_8h_af69ecacc75a3e4ea0bea044765736793} 
+void dummy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja wykonująca zadanie odświeżania wyświetlacza. 
+
+Co minutę aktualizuje czas w strukturze {\ttfamily \doxylink{struct_clock}{Clock}} i wyświetlacz
+
+Znajduje się w osobnym tasku tak aby można nią było sterować w przypadku chęci ustawienia czasu
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Wskaźnik do struktury {\ttfamily \doxylink{struct_clock}{Clock}}, na której funkcja ma operować. \\
+\hline
+\end{DoxyParams}

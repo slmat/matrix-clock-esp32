@@ -1,0 +1,229 @@
+\doxysection{main/include/max7219.c File Reference}
+\hypertarget{max7219_8c}{}\label{max7219_8c}\index{main/include/max7219.c@{main/include/max7219.c}}
+{\ttfamily \#include "{}max7219.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{max7219_8c_a69bd09cd199e277fd28a4608057c9587}{SPI\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja inicjalizująca urządzenie na magistrali SPI. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{max7219_8c_a9b9c2f01f73479d225afb0a7a00436ec}{max7219\+\_\+sendm}} (const uint8\+\_\+t reg, const uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Funkcja wysyłająca te same dane do wielu wyświetlaczy. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{max7219_8c_a9a99296803db4be8c90f86ebbbb78cc1}{max7219\+\_\+sendrow}} (uint8\+\_\+t reg, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Funkcja wysyłająca wiele danych pod jeden adres. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{max7219_8c_a9d81e3510203d1d76316fd429bcdc754}{max7219\+\_\+display\+Time}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}time)
+\begin{DoxyCompactList}\small\item\em Funkcja wyświetlająca tablicę bajtów zegara na matrycach LED. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{max7219_8c_a068340086fa9bcefaaf7f651612a4f97}{max7219\+\_\+change\+Intensity}} (const uint8\+\_\+t b)
+\begin{DoxyCompactList}\small\item\em Funkcja zmieniająca jasność wyświetlaczy. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{max7219_8c_a1d3493707beb83bf5186c2a3b5795a10}{max7219\+\_\+underline}} (uint8\+\_\+t bits)
+\begin{DoxyCompactList}\small\item\em Funkcja podkreślająca wybrane części wyświetlacza. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{max7219_8c_a31773f1ac08cbf643bd56be402c31b0d}{max7219\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja inicjalizująca wyświetlacz Max7219. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{max7219_8c_af222e187018d42b5e19cab551bad4321}{max7219\+\_\+clear}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wygaszająca wszystkie diody wyświetlacza Max7219. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+spi\+\_\+device\+\_\+handle\+\_\+t \mbox{\hyperlink{max7219_8c_a2b9419ecd46c4a3c4e962e79c2a4124c}{SPi}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{max7219_8c_a068340086fa9bcefaaf7f651612a4f97}\index{max7219.c@{max7219.c}!max7219\_changeIntensity@{max7219\_changeIntensity}}
+\index{max7219\_changeIntensity@{max7219\_changeIntensity}!max7219.c@{max7219.c}}
+\doxysubsubsection{\texorpdfstring{max7219\_changeIntensity()}{max7219\_changeIntensity()}}
+{\footnotesize\ttfamily \label{max7219_8c_a068340086fa9bcefaaf7f651612a4f97} 
+esp\+\_\+err\+\_\+t max7219\+\_\+change\+Intensity (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja zmieniająca jasność wyświetlaczy. 
+
+Do funkcji należy podać wartość jasności, która powinna być z zakresu 0x00 -\/ 0x0F. Wartość określa wypełnienie sygnału PWM sterującego diodami.
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Intensywność oświetlenia (0-\/15).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily ESP\+\_\+\+OK} jeśli operacja się powiedzie.
+\item Kod błędu w przypadku problemów. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{max7219_8c_af222e187018d42b5e19cab551bad4321}\index{max7219.c@{max7219.c}!max7219\_clear@{max7219\_clear}}
+\index{max7219\_clear@{max7219\_clear}!max7219.c@{max7219.c}}
+\doxysubsubsection{\texorpdfstring{max7219\_clear()}{max7219\_clear()}}
+{\footnotesize\ttfamily \label{max7219_8c_af222e187018d42b5e19cab551bad4321} 
+esp\+\_\+err\+\_\+t max7219\+\_\+clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja wygaszająca wszystkie diody wyświetlacza Max7219. 
+
+Funkcja wysyła na każdy wiersz wszystkich wyświetlaczy puste dane, co powoduje wygaszenie wszystkich diod.
+
+\begin{DoxyNote}{Note}
+W odróżnieniu od wywołania shutdown, który sprawia, że nie ważne jakie dane ustawimy na wyświetlaczach, zawsze będą wyłączone
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily ESP\+\_\+\+OK} jeśli operacja się powiedzie.
+\item Kod błędu w przypadku problemów. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{max7219_8c_a9d81e3510203d1d76316fd429bcdc754}\index{max7219.c@{max7219.c}!max7219\_displayTime@{max7219\_displayTime}}
+\index{max7219\_displayTime@{max7219\_displayTime}!max7219.c@{max7219.c}}
+\doxysubsubsection{\texorpdfstring{max7219\_displayTime()}{max7219\_displayTime()}}
+{\footnotesize\ttfamily \label{max7219_8c_a9d81e3510203d1d76316fd429bcdc754} 
+esp\+\_\+err\+\_\+t max7219\+\_\+display\+Time (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{time}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja wyświetlająca tablicę bajtów zegara na matrycach LED. 
+
+Do funkcji należy podać wskaźnik na pierwszy bajt danych do wyświetlenia. Poprawny rozmiar tablicy danych to \mbox{[}4\mbox{]}\mbox{[}8\mbox{]} -\/ 4 wyświetlacze po 8 rzędów.
+
+Funkcja sama zadecyduje gdzie ma wysłać jakie dane jeżeli zostały spełnione warunki rozmiaru danych
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & Wskaźnik na pierwszy bajt danych do wyświetlenia.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily ESP\+\_\+\+OK} jeśli operacja się powiedzie.
+\item Kod błędu w przypadku problemów. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{max7219_8c_a31773f1ac08cbf643bd56be402c31b0d}\index{max7219.c@{max7219.c}!max7219\_init@{max7219\_init}}
+\index{max7219\_init@{max7219\_init}!max7219.c@{max7219.c}}
+\doxysubsubsection{\texorpdfstring{max7219\_init()}{max7219\_init()}}
+{\footnotesize\ttfamily \label{max7219_8c_a31773f1ac08cbf643bd56be402c31b0d} 
+esp\+\_\+err\+\_\+t max7219\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja inicjalizująca wyświetlacz Max7219. 
+
+Funkcja inicjalizuje magistralę SPI i wysyła dane konfiguracyjne do wyświetlacza, takie jak jasność, tryb shutdown, dekodowanie, limit skanowania i test wyświetlacza.
+
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily ESP\+\_\+\+OK} jeśli operacja się powiedzie.
+\item Kod błędu w przypadku problemów. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{max7219_8c_a9b9c2f01f73479d225afb0a7a00436ec}\index{max7219.c@{max7219.c}!max7219\_sendm@{max7219\_sendm}}
+\index{max7219\_sendm@{max7219\_sendm}!max7219.c@{max7219.c}}
+\doxysubsubsection{\texorpdfstring{max7219\_sendm()}{max7219\_sendm()}}
+{\footnotesize\ttfamily \label{max7219_8c_a9b9c2f01f73479d225afb0a7a00436ec} 
+esp\+\_\+err\+\_\+t max7219\+\_\+sendm (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{reg}{, }\item[{const uint8\+\_\+t}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja wysyłająca te same dane do wielu wyświetlaczy. 
+
+Wysyła dane na określony adres wszystkich podłączonych urządzeń MAX7219.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & Bajt określający adres rejestru, na który mają być wysłane dane. \\
+\hline
+{\em data} & Bajt danych do wysłania do wybranego rejestru.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily ESP\+\_\+\+OK} jeśli operacja się powiedzie.
+\item Kod błędu w przypadku problemów. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{max7219_8c_a9a99296803db4be8c90f86ebbbb78cc1}\index{max7219.c@{max7219.c}!max7219\_sendrow@{max7219\_sendrow}}
+\index{max7219\_sendrow@{max7219\_sendrow}!max7219.c@{max7219.c}}
+\doxysubsubsection{\texorpdfstring{max7219\_sendrow()}{max7219\_sendrow()}}
+{\footnotesize\ttfamily \label{max7219_8c_a9a99296803db4be8c90f86ebbbb78cc1} 
+esp\+\_\+err\+\_\+t max7219\+\_\+sendrow (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{reg}{, }\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja wysyłająca wiele danych pod jeden adres. 
+
+Wysyła różne dane na jeden wybrany wiersz każdego wyświetlacza
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg} & Bajt określający adres rejestru, na który mają być wysłane dane. \\
+\hline
+{\em data} & Wskaźnik na pierwszy bajt danych do wysłania.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+obecnie funkcja nie wspiera zmiany liczby wyświetlaczy ponieważ nie było tego w założeniach projektu
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily ESP\+\_\+\+OK} jeśli operacja się powiedzie.
+\item Kod błędu w przypadku problemów. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{max7219_8c_a1d3493707beb83bf5186c2a3b5795a10}\index{max7219.c@{max7219.c}!max7219\_underline@{max7219\_underline}}
+\index{max7219\_underline@{max7219\_underline}!max7219.c@{max7219.c}}
+\doxysubsubsection{\texorpdfstring{max7219\_underline()}{max7219\_underline()}}
+{\footnotesize\ttfamily \label{max7219_8c_a1d3493707beb83bf5186c2a3b5795a10} 
+esp\+\_\+err\+\_\+t max7219\+\_\+underline (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bits}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja podkreślająca wybrane części wyświetlacza. 
+
+Funkcja umożliwia podkreślenie określonych sekcji wyświetlacza.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bits} & Bajt określający, którą część wyświetlacza podkreślić\+:
+\begin{DoxyItemize}
+\item 0\+: wyczyść ostatni wiersz wszystkich wyświetlaczy.
+\item 1\+: podkreśl część godzinową.
+\item 2\+: podkreśl część minutową.
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item {\ttfamily ESP\+\_\+\+OK} jeśli operacja się powiedzie.
+\item Kod błędu w przypadku problemów. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{max7219_8c_a69bd09cd199e277fd28a4608057c9587}\index{max7219.c@{max7219.c}!SPI\_init@{SPI\_init}}
+\index{SPI\_init@{SPI\_init}!max7219.c@{max7219.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_init()}{SPI\_init()}}
+{\footnotesize\ttfamily \label{max7219_8c_a69bd09cd199e277fd28a4608057c9587} 
+esp\+\_\+err\+\_\+t SPI\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja inicjalizująca urządzenie na magistrali SPI. 
+
+Wykorzystuje zmienne zadeklarowane w pliku \doxylink{defines_8h}{defines.\+h}.
+
+\begin{DoxyReturn}{Returns}
+Kod błędu po wykonaniu operacji. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{max7219_8c_a2b9419ecd46c4a3c4e962e79c2a4124c}\index{max7219.c@{max7219.c}!SPi@{SPi}}
+\index{SPi@{SPi}!max7219.c@{max7219.c}}
+\doxysubsubsection{\texorpdfstring{SPi}{SPi}}
+{\footnotesize\ttfamily \label{max7219_8c_a2b9419ecd46c4a3c4e962e79c2a4124c} 
+spi\+\_\+device\+\_\+handle\+\_\+t SPi}
+

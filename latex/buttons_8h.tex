@@ -1,0 +1,131 @@
+\doxysection{main/include/buttons.h File Reference}
+\hypertarget{buttons_8h}{}\label{buttons_8h}\index{main/include/buttons.h@{main/include/buttons.h}}
+{\ttfamily \#include $<$driver/gpio.\+h$>$}\newline
+{\ttfamily \#include $<$esp\+\_\+log.\+h$>$}\newline
+{\ttfamily \#include $<$freertos/\+Free\+RTOS.\+h$>$}\newline
+{\ttfamily \#include $<$freertos/task.\+h$>$}\newline
+{\ttfamily \#include "{}defines.\+h"{}}\newline
+{\ttfamily \#include "{}time\+Control.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{buttons_8h_adec65337f6abee6fdd0ffd487142734f}{BUTTON\+\_\+\+CLICKED}}(x)
+\item 
+\#define \mbox{\hyperlink{buttons_8h_a2ec098fc3b91b430820a04f45b211e28}{BUTTON\+\_\+\+NOTCLICKED}}(x)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State}} \{ \mbox{\hyperlink{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8abe61637b7d91b6298bee2d60822a5b6f}{EDIT\+\_\+\+MODE\+\_\+\+NONE}}
+, \mbox{\hyperlink{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8a9b0fdb13513aea22318553850a34bc8d}{EDIT\+\_\+\+MODE\+\_\+\+HOURS}}
+, \mbox{\hyperlink{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8a9bb8895dfa5ab10fb1630836a3f57640}{EDIT\+\_\+\+MODE\+\_\+\+MINUTES}}
+ \}
+\begin{DoxyCompactList}\small\item\em enumerator przechowyjący stan w którym się znajdujemy \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{buttons_8h_a01333ea4c0489e91d9ec91a63a0542dc}{buttons\+\_\+update}} (\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}a, Task\+Handle\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8c_ad72e44cc7c61c4e23aa25001095b685b}{t}})
+\begin{DoxyCompactList}\small\item\em Funkcja zajmująca się ciągłym sprawdzaniem stanu przycisków. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{buttons_8h_ab1679881c13bb80041c03bafe734c554}{buttons\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja inicjalizująca przyciski. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{buttons_8h_adec65337f6abee6fdd0ffd487142734f}\index{buttons.h@{buttons.h}!BUTTON\_CLICKED@{BUTTON\_CLICKED}}
+\index{BUTTON\_CLICKED@{BUTTON\_CLICKED}!buttons.h@{buttons.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_CLICKED}{BUTTON\_CLICKED}}
+{\footnotesize\ttfamily \label{buttons_8h_adec65337f6abee6fdd0ffd487142734f} 
+\#define BUTTON\+\_\+\+CLICKED(\begin{DoxyParamCaption}\item[{}]{x}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{gpio\_get\_level(x)\ ==\ 0}
+
+\end{DoxyCode}
+\Hypertarget{buttons_8h_a2ec098fc3b91b430820a04f45b211e28}\index{buttons.h@{buttons.h}!BUTTON\_NOTCLICKED@{BUTTON\_NOTCLICKED}}
+\index{BUTTON\_NOTCLICKED@{BUTTON\_NOTCLICKED}!buttons.h@{buttons.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_NOTCLICKED}{BUTTON\_NOTCLICKED}}
+{\footnotesize\ttfamily \label{buttons_8h_a2ec098fc3b91b430820a04f45b211e28} 
+\#define BUTTON\+\_\+\+NOTCLICKED(\begin{DoxyParamCaption}\item[{}]{x}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{gpio\_get\_level(x)\ ==\ 1}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8}\index{buttons.h@{buttons.h}!State@{State}}
+\index{State@{State}!buttons.h@{buttons.h}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily \label{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8} 
+enum \mbox{\hyperlink{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State}}}
+
+
+
+enumerator przechowyjący stan w którym się znajdujemy 
+
+Przechowywane są wartości odpowiadające odpowiednim trybom edycji poprawne wartości\+: EDIT\+\_\+\+MODE\+\_\+\+NONE, EDIT\+\_\+\+MODE\+\_\+\+HOURS, EDIT\+\_\+\+MODE\+\_\+\+MINUTES
+
+\begin{DoxyNote}{Note}
+chyba lepiej to było zrobić zwykłym define ale działa 
+\end{DoxyNote}
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EDIT\_MODE\_NONE@{EDIT\_MODE\_NONE}!buttons.h@{buttons.h}}\index{buttons.h@{buttons.h}!EDIT\_MODE\_NONE@{EDIT\_MODE\_NONE}}}\Hypertarget{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8abe61637b7d91b6298bee2d60822a5b6f}\label{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8} 
+EDIT\+\_\+\+MODE\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EDIT\_MODE\_HOURS@{EDIT\_MODE\_HOURS}!buttons.h@{buttons.h}}\index{buttons.h@{buttons.h}!EDIT\_MODE\_HOURS@{EDIT\_MODE\_HOURS}}}\Hypertarget{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8a9b0fdb13513aea22318553850a34bc8d}\label{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8} 
+EDIT\+\_\+\+MODE\+\_\+\+HOURS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EDIT\_MODE\_MINUTES@{EDIT\_MODE\_MINUTES}!buttons.h@{buttons.h}}\index{buttons.h@{buttons.h}!EDIT\_MODE\_MINUTES@{EDIT\_MODE\_MINUTES}}}\Hypertarget{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8a9bb8895dfa5ab10fb1630836a3f57640}\label{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8} 
+EDIT\+\_\+\+MODE\+\_\+\+MINUTES&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{buttons_8h_ab1679881c13bb80041c03bafe734c554}\index{buttons.h@{buttons.h}!buttons\_init@{buttons\_init}}
+\index{buttons\_init@{buttons\_init}!buttons.h@{buttons.h}}
+\doxysubsubsection{\texorpdfstring{buttons\_init()}{buttons\_init()}}
+{\footnotesize\ttfamily \label{buttons_8h_ab1679881c13bb80041c03bafe734c554} 
+esp\+\_\+err\+\_\+t buttons\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja inicjalizująca przyciski. 
+
+Zajmuje się zadeklarowaniem przycisków jako wejść z pullupami na odpowiednich bitach, Nie ma osobnej funkcji dla obsługi każdego przycisku w innym kontekscie
+
+Każdy przycisk jest sprawdzany za pomocą funkcji gpio\+\_\+get\+\_\+level(przycisk) która została dołączona z pliku "{}driver/gpio.\+h"{}
+
+\begin{DoxyReturn}{Returns}
+zwraca kod błędu po wykonaniu 
+\end{DoxyReturn}
+\Hypertarget{buttons_8h_a01333ea4c0489e91d9ec91a63a0542dc}\index{buttons.h@{buttons.h}!buttons\_update@{buttons\_update}}
+\index{buttons\_update@{buttons\_update}!buttons.h@{buttons.h}}
+\doxysubsubsection{\texorpdfstring{buttons\_update()}{buttons\_update()}}
+{\footnotesize\ttfamily \label{buttons_8h_a01333ea4c0489e91d9ec91a63a0542dc} 
+void buttons\+\_\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{Task\+Handle\+\_\+t \texorpdfstring{$\ast$}{*}}]{t}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja zajmująca się ciągłym sprawdzaniem stanu przycisków. 
+
+W środku znajduje się maszyna stanów sprawdzająca który z przycisków został kliknięty i w jakim kontekscie. tzn czy w trybie działania czy edycji
+
+funkcja wykorzystuje możliwość blokowania struktury \doxylink{struct_clock}{Clock} (bool ready) aby zminimalizować możliwość niepoprawnego wysyłania danych do wyświetlacza ale odbywa się to kosztem szybkości działania
+
+
+\begin{DoxyParams}{Parameters}
+{\em Clock\texorpdfstring{$\ast$}{*}} & wskaźnik do struktury zegara \\
+\hline
+{\em Task\+Handle\texorpdfstring{$\ast$}{*}} & wskaźnik na uchwyt do zadania odpowiedzialnego za aktualizacje wyświetlacza co minutę\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+270 linijek sprawdzania stanu 3 przycisków, można było to zrobić na przerwaniach od gpio, ale wyszłoby na to samo tylko z inna nazwą funkcji 
+\end{DoxyNote}

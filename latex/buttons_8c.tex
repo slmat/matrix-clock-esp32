@@ -1,0 +1,54 @@
+\doxysection{main/include/buttons.c File Reference}
+\hypertarget{buttons_8c}{}\label{buttons_8c}\index{main/include/buttons.c@{main/include/buttons.c}}
+{\ttfamily \#include "{}buttons.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{buttons_8c_a01333ea4c0489e91d9ec91a63a0542dc}{buttons\+\_\+update}} (\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}a, Task\+Handle\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8c_ad72e44cc7c61c4e23aa25001095b685b}{t}})
+\begin{DoxyCompactList}\small\item\em Funkcja zajmująca się ciągłym sprawdzaniem stanu przycisków. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{buttons_8c_ab1679881c13bb80041c03bafe734c554}{buttons\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja inicjalizująca przyciski. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{buttons_8c_ab1679881c13bb80041c03bafe734c554}\index{buttons.c@{buttons.c}!buttons\_init@{buttons\_init}}
+\index{buttons\_init@{buttons\_init}!buttons.c@{buttons.c}}
+\doxysubsubsection{\texorpdfstring{buttons\_init()}{buttons\_init()}}
+{\footnotesize\ttfamily \label{buttons_8c_ab1679881c13bb80041c03bafe734c554} 
+esp\+\_\+err\+\_\+t buttons\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja inicjalizująca przyciski. 
+
+Zajmuje się zadeklarowaniem przycisków jako wejść z pullupami na odpowiednich bitach, Nie ma osobnej funkcji dla obsługi każdego przycisku w innym kontekscie
+
+Każdy przycisk jest sprawdzany za pomocą funkcji gpio\+\_\+get\+\_\+level(przycisk) która została dołączona z pliku "{}driver/gpio.\+h"{}
+
+\begin{DoxyReturn}{Returns}
+zwraca kod błędu po wykonaniu 
+\end{DoxyReturn}
+\Hypertarget{buttons_8c_a01333ea4c0489e91d9ec91a63a0542dc}\index{buttons.c@{buttons.c}!buttons\_update@{buttons\_update}}
+\index{buttons\_update@{buttons\_update}!buttons.c@{buttons.c}}
+\doxysubsubsection{\texorpdfstring{buttons\_update()}{buttons\_update()}}
+{\footnotesize\ttfamily \label{buttons_8c_a01333ea4c0489e91d9ec91a63a0542dc} 
+void buttons\+\_\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clock}{Clock}} \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{Task\+Handle\+\_\+t \texorpdfstring{$\ast$}{*}}]{t}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja zajmująca się ciągłym sprawdzaniem stanu przycisków. 
+
+W środku znajduje się maszyna stanów sprawdzająca który z przycisków został kliknięty i w jakim kontekscie. tzn czy w trybie działania czy edycji
+
+funkcja wykorzystuje możliwość blokowania struktury \doxylink{struct_clock}{Clock} (bool ready) aby zminimalizować możliwość niepoprawnego wysyłania danych do wyświetlacza ale odbywa się to kosztem szybkości działania
+
+
+\begin{DoxyParams}{Parameters}
+{\em Clock\texorpdfstring{$\ast$}{*}} & wskaźnik do struktury zegara \\
+\hline
+{\em Task\+Handle\texorpdfstring{$\ast$}{*}} & wskaźnik na uchwyt do zadania odpowiedzialnego za aktualizacje wyświetlacza co minutę\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+270 linijek sprawdzania stanu 3 przycisków, można było to zrobić na przerwaniach od gpio, ale wyszłoby na to samo tylko z inna nazwą funkcji 
+\end{DoxyNote}

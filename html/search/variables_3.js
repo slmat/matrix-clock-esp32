@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['t_0',['t',['../main_8c.html#ad72e44cc7c61c4e23aa25001095b685b',1,'main.c']]],
-  ['time_1',['time',['../struct_clock.html#a8fc966b9583128836458a87620ab30cc',1,'Clock']]],
-  ['timechars_2',['timeChars',['../struct_clock.html#af69a62eb8ff6f520c4e7a090ddfce339',1,'Clock']]]
+  ['spi_0',['SPi',['../max7219_8c.html#a2b9419ecd46c4a3c4e962e79c2a4124c',1,'SPi:&#160;max7219.c'],['../max7219_8h.html#a2b9419ecd46c4a3c4e962e79c2a4124c',1,'SPi:&#160;max7219.c']]]
 ];

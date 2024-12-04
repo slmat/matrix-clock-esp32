@@ -1,0 +1,41 @@
+\doxysection{main/include/defines.h File Reference}
+\hypertarget{defines_8h}{}\label{defines_8h}\index{main/include/defines.h@{main/include/defines.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___configuration_ga0cb2443a51e91f6bb4955607e6740eb4}{MINI}}
+\begin{DoxyCompactList}\small\item\em MINI oznacza urządzenie pod które skonfigurowano wyprowadzenia i działanie. Tutaj oznacza esp32c3 super mini zamiast tego mozna uzyc WROOM. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_ga7f824fb83ccf0d5b1717b722b84ef124}{KILL\+\_\+\+INSTEAD\+\_\+\+OF\+\_\+\+HALT}}
+\begin{DoxyCompactList}\small\item\em WROOM oznacza urządzenie pod pod które skonfigurowano wyprowadzenia i działanie. Tutaj oznacza esp32 wroom zamiast tego mozna uzyc MINI. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_gaf68c3a5ad6ffce6c97fff154856a823d}{SEPARATOR}}
+\begin{DoxyCompactList}\small\item\em użycie tego makra sprawia że na wyświetlaczu godziny są oddzielone od minut znakiem \textquotesingle{}\+:\textquotesingle{} \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_ga2e699cd3601e5b0fec029441306d46aa}{DEBOUNCE\+\_\+\+TIME\+\_\+\+MS}}~10
+\begin{DoxyCompactList}\small\item\em Czas który mija pomiędzy sprawdzaniem stanu styków, w celu zapobiegnieciu ich drgań \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_gabdd9605a9848e42394a214f81b8d3b11}{CLOCK\+\_\+\+PRIORITY}}~2
+\begin{DoxyCompactList}\small\item\em Priorytet taska zegara, większy od funkcji main ponieważ chcemy mieć pewność że sprawdznie przycisków nie przeszokdzi w poprawnym odliczaniu czasu. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_ga5d3f11f2fdf8a7e27b975291e0c2c8cc}{MOSI}}~6
+\begin{DoxyCompactList}\small\item\em Pin MOSI dla MINI. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_ga3780e2fe762dc532df7d0f030b55caa0}{CS}}~7
+\begin{DoxyCompactList}\small\item\em Pin CS dla MINI. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_ga4b355291fe6b8ba8e167ab0faa862e45}{CLK}}~4
+\begin{DoxyCompactList}\small\item\em Pin CLK dla MINI. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_gad567ea9864a3046e47ab69cdc050ecfa}{BL}}~0
+\begin{DoxyCompactList}\small\item\em Makro określające pin przycisku lewego dla MINI. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_ga7c79586e3adaf552d11e7bfc28e1d5e6}{BC}}~10
+\begin{DoxyCompactList}\small\item\em Makro określające pin przycisku środkowego dla MINI. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_gafa556a68b7c0fcc58cd87c5f36859f30}{BR}}~2
+\begin{DoxyCompactList}\small\item\em Makro określające pin przycisku prawego dla MINI. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_gaaa2a64e1806a86f073e15277d94cb94a}{CORE}}~0
+\begin{DoxyCompactList}\small\item\em Rdzeń na którym ma być wykonywane zadanie zegara w przypadku użycia urządzenia MINI. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_gae14eaaed1fe7cdf491da54a714c426b3}{MAX\+\_\+\+COUNT}}~4
+\begin{DoxyCompactList}\small\item\em Maksymalna liczba wyświetlaczy podłączonych do jednego interfejsu spi, odpowiada bezpośrednio za rozmiar danych wysyłanych w pojedynczej transakcji. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_ga18ea01c6dde589c842daa00e68e47375}{MAX\+\_\+\+DATA\+\_\+\+SIZE\+\_\+\+BYTES}}~\mbox{\hyperlink{group___configuration_gae14eaaed1fe7cdf491da54a714c426b3}{MAX\+\_\+\+COUNT}}\texorpdfstring{$\ast$}{*}16
+\begin{DoxyCompactList}\small\item\em Maksymalny rozmiar danych w bajtach wysyłanych w jednej transakcji. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_ga3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}~8
+\begin{DoxyCompactList}\small\item\em Liczba wierszy w wyświetlaczu. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_ga4ab7dc9545189c0d83e4bb00abcf8d3c}{CLOCK\+\_\+\+STACK}}~4096
+\begin{DoxyCompactList}\small\item\em Rozmiar stosu dla zadania zegara w bajtach. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_gaf9cfe55697c1f0d57740572bd50e6cda}{CONDITION\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}}~2
+\begin{DoxyCompactList}\small\item\em makro używane podczas blokowania wątku w celu zapewnienia warunku, odpowiada za czas ponownego sprawdzenia. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___configuration_ga83c707024eaaf9bedd6f154c04ad90a9}{BLOCK\+\_\+\+UNTIL}}(action,  bool\+\_\+condition)
+\begin{DoxyCompactList}\small\item\em Makro blokujące do momentu spełnienia warunku. \end{DoxyCompactList}\end{DoxyCompactItemize}
