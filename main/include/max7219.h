@@ -19,7 +19,7 @@ esp_err_t SPI_init();
 /**
  * @brief Funkcja wysyłająca te same dane do wielu wyświetlaczy.
  * 
- * Wysyła dane do określonego rejestru wszystkich podłączonych urządzeń Max7219.
+ * Wysyła dane na określony adres wszystkich podłączonych urządzeń MAX7219.
  * 
  * @param reg Bajt określający adres rejestru, na który mają być wysłane dane.
  * @param data Bajt danych do wysłania do wybranego rejestru.
@@ -31,24 +31,29 @@ esp_err_t SPI_init();
 esp_err_t max7219_sendm(const uint8_t reg, const uint8_t data);
 
 /**
- * @brief Funkcja wysyłająca wiele danych do jednego rejestru.
+ * @brief Funkcja wysyłająca wiele danych pod jeden adres.
  * 
- * Do funkcji należy podać wskaźnik na pierwszy bajt danych do wysłania.
+ * Wysyła różne dane na jeden wybrany wiersz każdego wyświetlacza
  * 
  * @param reg Bajt określający adres rejestru, na który mają być wysłane dane.
  * @param data Wskaźnik na pierwszy bajt danych do wysłania.
  * 
+ * @note obecnie funkcja nie wspiera zmiany liczby wyświetlaczy ponieważ nie było tego w założeniach projektu
+ * 
  * @return 
  * - `ESP_OK` jeśli operacja się powiedzie.
  * - Kod błędu w przypadku problemów.
+ * 
  */
 esp_err_t max7219_sendrow(const uint8_t reg, const uint8_t *data);
 
 /**
- * @brief Funkcja wyświetlająca tablicę bajtów na matrycach LED.
+ * @brief Funkcja wyświetlająca tablicę bajtów zegara na matrycach LED.
  * 
  * Do funkcji należy podać wskaźnik na pierwszy bajt danych do wyświetlenia. 
  * Poprawny rozmiar tablicy danych to [4][8] - 4 wyświetlacze po 8 rzędów.
+ * 
+ * Funkcja sama zadecyduje gdzie ma wysłać jakie dane jeżeli zostały spełnione warunki rozmiaru danych
  * 
  * @param time Wskaźnik na pierwszy bajt danych do wyświetlenia.
  * 
@@ -103,7 +108,10 @@ esp_err_t max7219_init();
 /**
  * @brief Funkcja wygaszająca wszystkie diody wyświetlacza Max7219.
  * 
- * Funkcja wysyła na każdy wiersz wszystkich wyświetlaczy puste dane, co powoduje wygaszenie.
+ * Funkcja wysyła na każdy wiersz wszystkich wyświetlaczy puste dane, co powoduje wygaszenie wszystkich diod.
+ * 
+ * @note W odróżnieniu od wywołania shutdown, który sprawia, że nie ważne jakie dane ustawimy na wyświetlaczach,
+ * zawsze będą wyłączone
  * 
  * @return 
  * - `ESP_OK` jeśli operacja się powiedzie.

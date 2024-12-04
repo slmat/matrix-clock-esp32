@@ -12,25 +12,25 @@
 /// @defgroup Configuration Konfiguracja
 /// @{
 
-/// @brief Tryb miniaturowy dla urządzenia.
+/// @brief MINI oznacza urządzenie pod które skonfigurowano wyprowadzenia i działanie. Tutaj oznacza esp32c3 super mini zamiast tego mozna uzyc WROOM
 #define MINI 
 
-/// @brief Tryb WROOM (do skonfigurowania w ESP-IDF).
+/// @brief WROOM oznacza urządzenie pod pod które skonfigurowano wyprowadzenia i działanie. Tutaj oznacza esp32 wroom zamiast tego mozna uzyc MINI
 //#define WROOM
 
-/// @brief Włączenie trybu debugowania.
+/// @brief Makro odpowiedzialne za tryb debugowania, włącza komentarze w funkcjach 
 //#define DEBUG
 
-/// @brief Zatrzymanie zadania zamiast jego zabijania.
+/// @brief Opcja stworzona do debugowania, pozwala na zatrzymanie taska zegara zamiast jego restartowanie
 #define KILL_INSTEAD_OF_HALT
 
-/// @brief Separator danych.
+/// @brief użycie tego makra sprawia że na wyświetlaczu godziny są oddzielone od minut znakiem ':' 
 #define SEPARATOR
 
-/// @brief Czas odbijania w ms.
+/// @brief Czas który mija pomiędzy sprawdzaniem stanu styków, w celu zapobiegnieciu ich drgań
 #define DEBOUNCE_TIME_MS 10
 
-/// @brief Priorytet zegara.
+/// @brief Priorytet taska zegara, większy od funkcji main ponieważ chcemy mieć pewność że sprawdznie przycisków nie przeszokdzi w poprawnym odliczaniu czasu
 #define CLOCK_PRIORITY 2
 
 #ifdef WR0OM
@@ -46,10 +46,10 @@
     #ifndef CLK
         #define CLK 18
     #endif
-    #define BL 99 ///< Poziom podświetlenia lewej części dla WROOM.
-    #define BC 99 ///< Poziom podświetlenia środkowej części dla WROOM.
-    #define BR 99 ///< Poziom podświetlenia prawej części dla WROOM.
-    #define CORE 1 ///< Rdzeń CPU dla WROOM.
+    #define BL 99  ///< Makro określające pin przycisku lewego dla WROOM.
+    #define BC 99  ///< Makro określające pin przycisku środkowego dla WROOM.
+    #define BR 99  ///< Makro określające pin przycisku prawego dla WROOM.
+    #define CORE 1 ///< Rdzeń na którym ma być wykonywane zadanie zegara w przypadku użycia urządzenia WROOM
 #endif
 
 #ifdef MINI
@@ -65,16 +65,16 @@
     #ifndef CLK
         #define CLK 4
     #endif
-    #define BL 0 ///< Poziom podświetlenia lewej części dla MINI.
-    #define BC 10 ///< Poziom podświetlenia środkowej części dla MINI.
-    #define BR 2 ///< Poziom podświetlenia prawej części dla MINI.
-    #define CORE 0 ///< Rdzeń CPU dla MINI.
+    #define BL 0   ///< Makro określające pin przycisku lewego dla MINI.
+    #define BC 10  ///< Makro określające pin przycisku środkowego dla MINI.
+    #define BR 2   ///< Makro określające pin przycisku prawego dla MINI.
+    #define CORE 0 ///< Rdzeń na którym ma być wykonywane zadanie zegara w przypadku użycia urządzenia MINI.
 #endif
 
-/// @brief Maksymalna liczba urządzeń w systemie.
+/// @brief Maksymalna liczba wyświetlaczy podłączonych do jednego interfejsu spi, odpowiada bezpośrednio za rozmiar danych wysyłanych w pojedynczej transakcji
 #ifndef MAX_COUNT
     #define MAX_COUNT 4
-    /// @brief Maksymalny rozmiar danych w bajtach.
+    /// @brief Maksymalny rozmiar danych w bajtach wysyłanych w jednej transakcji.
     #define MAX_DATA_SIZE_BYTES MAX_COUNT*16
 #endif
 
@@ -83,14 +83,16 @@
     #define ROWS 8
 #endif
 
-/// @brief Rozmiar stosu wyświetlacza w bajtach.
-#define DISPLAY_STACK 4096
+/// @brief Rozmiar stosu dla zadania zegara w bajtach.
+#define CLOCK_STACK 4096
 
-/// @brief Interwał sprawdzania warunku w ms.
+/// @brief makro używane podczas blokowania wątku w celu zapewnienia warunku, odpowiada za czas ponownego sprawdzenia.
 #define CONDITION_CHECK_INTERVAL_MS 2
 
 /**
  * @brief Makro blokujące do momentu spełnienia warunku.
+ * 
+ * pętla while(!warunek){};
  * 
  * @param action Akcja wykonywana po spełnieniu warunku.
  * @param bool_condition Warunek logiczny.

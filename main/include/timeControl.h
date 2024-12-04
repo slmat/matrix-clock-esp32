@@ -15,130 +15,30 @@
  * @note Static const automatycznie umieszcza dane w pamięci programu w ESP-IDF, więc dodatkowy atrybut nie jest wymagany.
  */
 static const uint8_t digits[10][8] __attribute__((section(".rodata"))) = {
-    // Cyfra 0
-    {
-        0b00111100,
-        0b01000010,
-        0b01000110,
-        0b01001010,
-        0b01010010,
-        0b01100010,
-        0b00111100,
-        0x00,
-    },
-    // Cyfra 1
-    {
-        0b00001000,
-        0b00011000,
-        0b00101000,
-        0b00001000,
-        0b00001000,
-        0b00001000,
-        0b00111110,
-        0x00,
-    },
-    // Cyfra 2
-    {
-        0b00111100,
-        0b01000010,
-        0b00000010,
-        0b00001100,
-        0b00110000,
-        0b01000000,
-        0b01111110,
-        0x00,
-    },
-    // Cyfra 3
-    {
-        0b00111100,
-        0b01000010,
-        0b00000010,
-        0b00011100,
-        0b00000010,
-        0b01000010,
-        0b00111100,
-        0x00,
-    },
-    // Cyfra 4
-    {
-        0b00000100,
-        0b00001100,
-        0b00010100,
-        0b00100100,
-        0b01111110,
-        0b00000100,
-        0b00000100,
-        0x00,
-    },
-    // Cyfra 5
-    {
-        0b01111110,
-        0b01000000,
-        0b01111100,
-        0b00000010,
-        0b00000010,
-        0b01000010,
-        0b00111100,
-        0x00,
-    },
-    // Cyfra 6
-    {
-        0b00111100,
-        0b01000000,
-        0b01111100,
-        0b01000010,
-        0b01000010,
-        0b01000010,
-        0b00111100,
-        0x00,
-    },
-    // Cyfra 7
-    {
-        0b01111110,
-        0b00000010,
-        0b00000100,
-        0b00001000,
-        0b00010000,
-        0b00100000,
-        0b00100000,
-        0x00,
-    },
-    // Cyfra 8
-    {
-        0b00111100,
-        0b01000010,
-        0b01000010,
-        0b00111100,
-        0b01000010,
-        0b01000010,
-        0b00111100,
-        0x00,
-    },
-    // Cyfra 9
-    {
-        0b00111100,
-        0b01000010,
-        0b01000010,
-        0b00111110,
-        0b00000010,
-        0b00000010,
-        0b00111100,
-        0x00,
-    },
+    { 0x3C, 0x42, 0x46, 0x4A, 0x52, 0x62, 0x3C, 0x00 }, // 0
+    { 0x08, 0x18, 0x28, 0x08, 0x08, 0x08, 0x3E, 0x00 }, // 1
+    { 0x3C, 0x42, 0x02, 0x0C, 0x30, 0x40, 0x7E, 0x00 }, // 2
+    { 0x3C, 0x42, 0x02, 0x1C, 0x02, 0x42, 0x3C, 0x00 }, // 3
+    { 0x04, 0x0C, 0x14, 0x24, 0x7E, 0x04, 0x04, 0x00 }, // 4
+    { 0x7E, 0x40, 0x7C, 0x02, 0x02, 0x42, 0x3C, 0x00 }, // 5
+    { 0x3C, 0x40, 0x7C, 0x42, 0x42, 0x42, 0x3C, 0x00 }, // 6
+    { 0x7E, 0x02, 0x04, 0x08, 0x10, 0x20, 0x20, 0x00 }, // 7
+    { 0x3C, 0x42, 0x42, 0x3C, 0x42, 0x42, 0x3C, 0x00 }, // 8
+    { 0x3C, 0x42, 0x42, 0x3E, 0x02, 0x02, 0x3C, 0x00 }, // 9
 };
 
 /**
  * @brief Struktura przechowująca aktualny czas.
  * 
- * Zawiera czas jako liczby i graficzną reprezentację w formie tablicy znaków.
- * Przechowuje również jasność wyświetlacza oraz gotowość do aktualizacji.
+ * Struktura zawiera zmienne potrzebne do poprawnego wyświetlania i aktualizacji czasu
  * 
- * @note Flaga `ready` pozwala minimalizować błędy podczas wysyłania danych do wyświetlacza.
+ * @note Flaga `ready` pozwala minimalizować błędy podczas wysyłania danych do wyświetlacza, 
+ * ale nie jest wymagana gdy nie mamy zamiaru bawić się przyciskami a po prostu ustawić czas 
  */
 typedef struct {
     uint8_t time[4];        /**< Aktualny czas w formacie liczbowym. */
     uint8_t timeChars[4][8];/**< Graficzna reprezentacja czasu. */
-    bool ready;             /**< Flaga gotowości do aktualizacji. */
+    bool ready;             /**< Flaga gotowości do aktualizacji wyświetlacza. */
     uint8_t intensity;      /**< Jasność wyświetlacza (0-15). */
 } Clock;
 
@@ -234,9 +134,11 @@ void clock_update(Clock *a);
  */
 void Clock_Loop(void *); // deprecated
 
-/*! \brief Funkcja wykonująca zadanie odświeżania wyświetlacza co minutę
+/*! \brief Funkcja wykonująca zadanie odświeżania wyświetlacza
  * 
- * Ta funkcja przyjmuje strukturę `Clock` i wykonuje operacje na jej danych.
+ * Co minutę aktualizuje czas w strukturze `Clock` i wyświetlacz
+ * 
+ * Znajduje się w osobnym tasku tak aby można nią było sterować w przypadku chęci ustawienia czasu
  * 
  * \param a Wskaźnik do struktury `Clock`, na której funkcja ma operować.
  */

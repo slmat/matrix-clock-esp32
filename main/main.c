@@ -31,7 +31,7 @@ TaskHandle_t clockHandle;
  * @brief Główna funkcja aplikacji.
  * 
  * Funkcja inicjalizuje moduły zegara oraz przycisków, a następnie tworzy zadanie
- * zegara na określonym rdzeniu. Na końcu wywoływana jest funkcja obsługująca
+ * zegara na określonym rdzeniu(w c3 musi to być rdzeń 0 ale w wroomie niekoniecznie). Na końcu wywoływana jest funkcja obsługująca
  * aktualizację przycisków.
  */
 void app_main(void)
@@ -63,7 +63,7 @@ void app_main(void)
      * @param &clockHandle Handler do utworzonego zadania.
      * @param CORE Rdzeń, na którym zadanie ma działać.
      */
-    xTaskCreatePinnedToCore(dummy, "Clock", DISPLAY_STACK, &t, CLOCK_PRIORITY, &clockHandle, CORE);
+    xTaskCreatePinnedToCore(dummy, "Clock", CLOCK_STACK, &t, CLOCK_PRIORITY, &clockHandle, CORE);
 
     /**
      * @brief Aktualizacja przycisków.

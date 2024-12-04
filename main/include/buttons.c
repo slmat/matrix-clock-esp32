@@ -234,7 +234,7 @@ void buttons_update(Clock *a, TaskHandle_t *t)
                         ESP_LOGI("Button", "MINUTY SRODKOWY ODKLIKNIETY");
 #endif
 #ifdef KILL_INSTEAD_OF_HALT
-                        xTaskCreatePinnedToCore(dummy, "Clock", DISPLAY_STACK, a, CLOCK_PRIORITY, t, CORE);
+                        xTaskCreatePinnedToCore(dummy, "Clock", CLOCK_STACK, a, CLOCK_PRIORITY, t, CORE);
 #else
                         vTaskResume(*(t));
 #endif  
