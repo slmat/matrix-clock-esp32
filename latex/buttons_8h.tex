@@ -1,5 +1,10 @@
 \doxysection{main/include/buttons.h File Reference}
 \hypertarget{buttons_8h}{}\label{buttons_8h}\index{main/include/buttons.h@{main/include/buttons.h}}
+
+
+Biblioteka opisująca funkcje obsługi przycisków.  
+
+
 {\ttfamily \#include $<$driver/gpio.\+h$>$}\newline
 {\ttfamily \#include $<$esp\+\_\+log.\+h$>$}\newline
 {\ttfamily \#include $<$freertos/\+Free\+RTOS.\+h$>$}\newline
@@ -28,6 +33,11 @@ void \mbox{\hyperlink{buttons_8h_a01333ea4c0489e91d9ec91a63a0542dc}{buttons\+\_\
 \begin{DoxyCompactList}\small\item\em Funkcja zajmująca się ciągłym sprawdzaniem stanu przycisków. \end{DoxyCompactList}\item 
 esp\+\_\+err\+\_\+t \mbox{\hyperlink{buttons_8h_ab1679881c13bb80041c03bafe734c554}{buttons\+\_\+init}} ()
 \begin{DoxyCompactList}\small\item\em Funkcja inicjalizująca przyciski. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Biblioteka opisująca funkcje obsługi przycisków. 
+
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -68,9 +78,9 @@ enumerator przechowyjący stan w którym się znajdujemy
 
 Przechowywane są wartości odpowiadające odpowiednim trybom edycji poprawne wartości\+: EDIT\+\_\+\+MODE\+\_\+\+NONE, EDIT\+\_\+\+MODE\+\_\+\+HOURS, EDIT\+\_\+\+MODE\+\_\+\+MINUTES
 
-\begin{DoxyNote}{Note}
+\begin{DoxyRemark}{Remarks}
 chyba lepiej to było zrobić zwykłym define ale działa 
-\end{DoxyNote}
+\end{DoxyRemark}
 \begin{DoxyEnumFields}[2]{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{EDIT\_MODE\_NONE@{EDIT\_MODE\_NONE}!buttons.h@{buttons.h}}\index{buttons.h@{buttons.h}!EDIT\_MODE\_NONE@{EDIT\_MODE\_NONE}}}\Hypertarget{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8abe61637b7d91b6298bee2d60822a5b6f}\label{buttons_8h_a5d74787dedbc4e11c1ab15bf487e61f8} 
 EDIT\+\_\+\+MODE\+\_\+\+NONE&\\
@@ -126,6 +136,6 @@ funkcja wykorzystuje możliwość blokowania struktury \doxylink{struct_clock}{C
 {\em Task\+Handle\texorpdfstring{$\ast$}{*}} & wskaźnik na uchwyt do zadania odpowiedzialnego za aktualizacje wyświetlacza co minutę\\
 \hline
 \end{DoxyParams}
-\begin{DoxyNote}{Note}
+\begin{DoxyRemark}{Remarks}
 270 linijek sprawdzania stanu 3 przycisków, można było to zrobić na przerwaniach od gpio, ale wyszłoby na to samo tylko z inna nazwą funkcji 
-\end{DoxyNote}
+\end{DoxyRemark}

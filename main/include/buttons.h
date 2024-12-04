@@ -12,6 +12,14 @@
 #define BUTTON_CLICKED(x) gpio_get_level(x) == 0
 #define BUTTON_NOTCLICKED(x) gpio_get_level(x) == 1
 
+/** 
+ * @file buttons.h
+ * 
+ * @brief Biblioteka opisująca funkcje obsługi przycisków
+ * 
+ * 
+ */
+
 /*! \brief enumerator przechowyjący stan w którym się znajdujemy
  *
  *  Przechowywane są wartości odpowiadające odpowiednim trybom edycji
@@ -20,7 +28,7 @@
  * EDIT_MODE_HOURS, 
  * EDIT_MODE_MINUTES
  * 
- * \note chyba lepiej to było zrobić zwykłym define ale działa
+ * \remark chyba lepiej to było zrobić zwykłym define ale działa
  */
 static enum State {EDIT_MODE_NONE, EDIT_MODE_HOURS, EDIT_MODE_MINUTES};
 
@@ -36,7 +44,7 @@ static enum State {EDIT_MODE_NONE, EDIT_MODE_HOURS, EDIT_MODE_MINUTES};
  * \param Clock* wskaźnik do struktury zegara
  * \param TaskHandle* wskaźnik na uchwyt do zadania odpowiedzialnego za aktualizacje wyświetlacza co minutę 
  * 
- *  \note 270 linijek sprawdzania stanu 3 przycisków, można było to zrobić 
+ *  \remark 270 linijek sprawdzania stanu 3 przycisków, można było to zrobić 
  *  na przerwaniach od gpio, ale wyszłoby na to samo tylko z inna nazwą funkcji
  */
 void buttons_update(Clock *a, TaskHandle_t *t);

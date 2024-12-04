@@ -104,6 +104,9 @@ $(function(){initNavTree('buttons_8h.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">buttons.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Biblioteka opisująca funkcje obsługi przycisków.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;driver/gpio.h&gt;</code><br />
 <code>#include &lt;esp_log.h&gt;</code><br />
 <code>#include &lt;freertos/FreeRTOS.h&gt;</code><br />
@@ -138,7 +141,9 @@ Functions</h2></td></tr>
 <tr class="memdesc:ab1679881c13bb80041c03bafe734c554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja inicjalizująca przyciski.  <br /></td></tr>
 <tr class="separator:ab1679881c13bb80041c03bafe734c554"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Biblioteka opisująca funkcje obsługi przycisków. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="adec65337f6abee6fdd0ffd487142734f" name="adec65337f6abee6fdd0ffd487142734f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adec65337f6abee6fdd0ffd487142734f">&#9670;&#160;</a></span>BUTTON_CLICKED</h2>
 
@@ -190,7 +195,7 @@ Functions</h2></td></tr>
 
 <p>enumerator przechowyjący stan w którym się znajdujemy </p>
 <p>Przechowywane są wartości odpowiadające odpowiednim trybom edycji poprawne wartości: EDIT_MODE_NONE, EDIT_MODE_HOURS, EDIT_MODE_MINUTES</p>
-<dl class="section note"><dt>Note</dt><dd>chyba lepiej to było zrobić zwykłym define ale działa </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>chyba lepiej to było zrobić zwykłym define ale działa </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5d74787dedbc4e11c1ab15bf487e61f8abe61637b7d91b6298bee2d60822a5b6f" name="a5d74787dedbc4e11c1ab15bf487e61f8abe61637b7d91b6298bee2d60822a5b6f"></a>EDIT_MODE_NONE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5d74787dedbc4e11c1ab15bf487e61f8a9b0fdb13513aea22318553850a34bc8d" name="a5d74787dedbc4e11c1ab15bf487e61f8a9b0fdb13513aea22318553850a34bc8d"></a>EDIT_MODE_HOURS&#160;</td><td class="fielddoc"></td></tr>
@@ -251,7 +256,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>270 linijek sprawdzania stanu 3 przycisków, można było to zrobić na przerwaniach od gpio, ale wyszłoby na to samo tylko z inna nazwą funkcji </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>270 linijek sprawdzania stanu 3 przycisków, można było to zrobić na przerwaniach od gpio, ale wyszłoby na to samo tylko z inna nazwą funkcji </dd></dl>
 
 </div>
 </div>

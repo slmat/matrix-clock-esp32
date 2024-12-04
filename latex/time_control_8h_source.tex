@@ -10,51 +10,51 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string.h>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{max7219_8h}{max7219.h}}"{}}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ digits[10][8]\ \_\_attribute\_\_((section(\textcolor{stringliteral}{"{}.rodata"{}})))\ =\ \{}
-\DoxyCodeLine{00018\ \ \ \ \ \{\ 0x3C,\ 0x42,\ 0x46,\ 0x4A,\ 0x52,\ 0x62,\ 0x3C,\ 0x00\ \},\ \textcolor{comment}{//\ 0}}
-\DoxyCodeLine{00019\ \ \ \ \ \{\ 0x08,\ 0x18,\ 0x28,\ 0x08,\ 0x08,\ 0x08,\ 0x3E,\ 0x00\ \},\ \textcolor{comment}{//\ 1}}
-\DoxyCodeLine{00020\ \ \ \ \ \{\ 0x3C,\ 0x42,\ 0x02,\ 0x0C,\ 0x30,\ 0x40,\ 0x7E,\ 0x00\ \},\ \textcolor{comment}{//\ 2}}
-\DoxyCodeLine{00021\ \ \ \ \ \{\ 0x3C,\ 0x42,\ 0x02,\ 0x1C,\ 0x02,\ 0x42,\ 0x3C,\ 0x00\ \},\ \textcolor{comment}{//\ 3}}
-\DoxyCodeLine{00022\ \ \ \ \ \{\ 0x04,\ 0x0C,\ 0x14,\ 0x24,\ 0x7E,\ 0x04,\ 0x04,\ 0x00\ \},\ \textcolor{comment}{//\ 4}}
-\DoxyCodeLine{00023\ \ \ \ \ \{\ 0x7E,\ 0x40,\ 0x7C,\ 0x02,\ 0x02,\ 0x42,\ 0x3C,\ 0x00\ \},\ \textcolor{comment}{//\ 5}}
-\DoxyCodeLine{00024\ \ \ \ \ \{\ 0x3C,\ 0x40,\ 0x7C,\ 0x42,\ 0x42,\ 0x42,\ 0x3C,\ 0x00\ \},\ \textcolor{comment}{//\ 6}}
-\DoxyCodeLine{00025\ \ \ \ \ \{\ 0x7E,\ 0x02,\ 0x04,\ 0x08,\ 0x10,\ 0x20,\ 0x20,\ 0x00\ \},\ \textcolor{comment}{//\ 7}}
-\DoxyCodeLine{00026\ \ \ \ \ \{\ 0x3C,\ 0x42,\ 0x42,\ 0x3C,\ 0x42,\ 0x42,\ 0x3C,\ 0x00\ \},\ \textcolor{comment}{//\ 8}}
-\DoxyCodeLine{00027\ \ \ \ \ \{\ 0x3C,\ 0x42,\ 0x42,\ 0x3E,\ 0x02,\ 0x02,\ 0x3C,\ 0x00\ \},\ \textcolor{comment}{//\ 9}}
-\DoxyCodeLine{00028\ \};}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00039\ \ \ \ \ uint8\_t\ time[4];\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00040\ \ \ \ \ uint8\_t\ timeChars[4][8];}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_clock_a65cf7d7f8e531611b245355ab91fd749}{ready}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00042\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_clock_a076e47e2f3a82762ee000a8a77adccbd}{intensity}};\ \ \ \ \ \ }
-\DoxyCodeLine{00043\ \}\ \mbox{\hyperlink{struct_clock}{Clock}};}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00053\ esp\_err\_t\ \mbox{\hyperlink{time_control_8h_a4ec981495c6372c2f04ce52bca434cb9}{clock\_init}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00061\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{time_control_8h_aae204ca3e63eced9e5620a1194d0ce5d}{clock\_inc\_intensity}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
+\DoxyCodeLine{00025\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ digits[10][8]\ \_\_attribute\_\_((section(\textcolor{stringliteral}{"{}.rodata"{}})))\ =\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \{\ 0x3C,\ 0x42,\ 0x46,\ 0x4A,\ 0x52,\ 0x62,\ 0x3C,\ 0x00\ \},\ \textcolor{comment}{//\ 0}}
+\DoxyCodeLine{00027\ \ \ \ \ \{\ 0x08,\ 0x18,\ 0x28,\ 0x08,\ 0x08,\ 0x08,\ 0x3E,\ 0x00\ \},\ \textcolor{comment}{//\ 1}}
+\DoxyCodeLine{00028\ \ \ \ \ \{\ 0x3C,\ 0x42,\ 0x02,\ 0x0C,\ 0x30,\ 0x40,\ 0x7E,\ 0x00\ \},\ \textcolor{comment}{//\ 2}}
+\DoxyCodeLine{00029\ \ \ \ \ \{\ 0x3C,\ 0x42,\ 0x02,\ 0x1C,\ 0x02,\ 0x42,\ 0x3C,\ 0x00\ \},\ \textcolor{comment}{//\ 3}}
+\DoxyCodeLine{00030\ \ \ \ \ \{\ 0x04,\ 0x0C,\ 0x14,\ 0x24,\ 0x7E,\ 0x04,\ 0x04,\ 0x00\ \},\ \textcolor{comment}{//\ 4}}
+\DoxyCodeLine{00031\ \ \ \ \ \{\ 0x7E,\ 0x40,\ 0x7C,\ 0x02,\ 0x02,\ 0x42,\ 0x3C,\ 0x00\ \},\ \textcolor{comment}{//\ 5}}
+\DoxyCodeLine{00032\ \ \ \ \ \{\ 0x3C,\ 0x40,\ 0x7C,\ 0x42,\ 0x42,\ 0x42,\ 0x3C,\ 0x00\ \},\ \textcolor{comment}{//\ 6}}
+\DoxyCodeLine{00033\ \ \ \ \ \{\ 0x7E,\ 0x02,\ 0x04,\ 0x08,\ 0x10,\ 0x20,\ 0x20,\ 0x00\ \},\ \textcolor{comment}{//\ 7}}
+\DoxyCodeLine{00034\ \ \ \ \ \{\ 0x3C,\ 0x42,\ 0x42,\ 0x3C,\ 0x42,\ 0x42,\ 0x3C,\ 0x00\ \},\ \textcolor{comment}{//\ 8}}
+\DoxyCodeLine{00035\ \ \ \ \ \{\ 0x3C,\ 0x42,\ 0x42,\ 0x3E,\ 0x02,\ 0x02,\ 0x3C,\ 0x00\ \},\ \textcolor{comment}{//\ 9}}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00047\ \ \ \ \ uint8\_t\ time[4];\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ uint8\_t\ timeChars[4][8];}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_clock_a65cf7d7f8e531611b245355ab91fd749}{ready}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_clock_a076e47e2f3a82762ee000a8a77adccbd}{intensity}};\ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \}\ \mbox{\hyperlink{struct_clock}{Clock}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00061\ esp\_err\_t\ \mbox{\hyperlink{time_control_8h_a4ec981495c6372c2f04ce52bca434cb9}{clock\_init}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
 \DoxyCodeLine{00062\ }
-\DoxyCodeLine{00069\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{time_control_8h_a131395ff042f0666c1a76152c2d3d0c0}{clock\_dec\_intensity}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
+\DoxyCodeLine{00069\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{time_control_8h_aae204ca3e63eced9e5620a1194d0ce5d}{clock\_inc\_intensity}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
 \DoxyCodeLine{00070\ }
-\DoxyCodeLine{00077\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_ac38ee77cd742636f418bd59b526e2b0f}{clock\_set\_intensity}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a,\ \textcolor{keyword}{const}\ uint8\_t\ i)\ \_\_attribute\_\_((weak));}
+\DoxyCodeLine{00077\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{time_control_8h_a131395ff042f0666c1a76152c2d3d0c0}{clock\_dec\_intensity}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
 \DoxyCodeLine{00078\ }
-\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_a6fbf1bb7e46efd605beb40040e5902a5}{clock\_update\_timeChar}}(\textcolor{keyword}{const}\ uint8\_t\ place,\ \mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
+\DoxyCodeLine{00085\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_ac38ee77cd742636f418bd59b526e2b0f}{clock\_set\_intensity}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a,\ \textcolor{keyword}{const}\ uint8\_t\ i)\ \_\_attribute\_\_((weak));}
 \DoxyCodeLine{00086\ }
-\DoxyCodeLine{00093\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{time_control_8h_ad612bdab8a99164b5253a10e1ac507ac}{clock\_add\_minute}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_a6fbf1bb7e46efd605beb40040e5902a5}{clock\_update\_timeChar}}(\textcolor{keyword}{const}\ uint8\_t\ place,\ \mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
 \DoxyCodeLine{00094\ }
-\DoxyCodeLine{00101\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{time_control_8h_a8620a510032156ba8feae8be261492fc}{clock\_add\_hour}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{time_control_8h_ad612bdab8a99164b5253a10e1ac507ac}{clock\_add\_minute}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
 \DoxyCodeLine{00102\ }
-\DoxyCodeLine{00108\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_ad9866f3308331d317a8d699954b64252}{clock\_sub\_minute}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_ae455bdf82fa6c5db9499fe9a0d874c06}{clock\_sub\_hour}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00124\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_a9f0c5f9a6781b6b36aa421ffa2f6080c}{clock\_update}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_a72f96aa59ad26e7e627ec5d5cd1fc56d}{Clock\_Loop}}(\textcolor{keywordtype}{void}\ *);\ \textcolor{comment}{//\ deprecated}}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00145\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_af69ecacc75a3e4ea0bea044765736793}{dummy}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *);\ }
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ }
-\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{time_control_8h_a8620a510032156ba8feae8be261492fc}{clock\_add\_hour}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_ad9866f3308331d317a8d699954b64252}{clock\_sub\_minute}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_ae455bdf82fa6c5db9499fe9a0d874c06}{clock\_sub\_hour}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_a9f0c5f9a6781b6b36aa421ffa2f6080c}{clock\_update}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *a);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00143\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_a72f96aa59ad26e7e627ec5d5cd1fc56d}{Clock\_Loop}}(\textcolor{keywordtype}{void}\ *);\ \textcolor{comment}{//\ deprecated}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00153\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{time_control_8h_af69ecacc75a3e4ea0bea044765736793}{dummy}}(\mbox{\hyperlink{struct_clock}{Clock}}\ *);\ }
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

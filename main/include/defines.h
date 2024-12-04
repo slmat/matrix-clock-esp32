@@ -9,6 +9,14 @@
  * @date 2024-12-04
  */
 
+/** 
+ * @file defines.h
+ * 
+ * @brief plik opsiujący wszystkie makra wykorzystywane przez wiele plików
+ * 
+ * 
+ */
+
 /// @defgroup Configuration Konfiguracja
 /// @{
 

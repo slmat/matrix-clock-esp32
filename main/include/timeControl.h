@@ -7,6 +7,14 @@
 #include "max7219.h"
 
 /** 
+ * @file timeControl.h
+ * 
+ * @brief Biblioteka opisująca funkcje zegara
+ * 
+ * 
+ */
+/**
+ *  
  * @brief Tablica przechowująca cyfry 0-9 w postaci bitowej.
  * 
  * Zawiera graficzną reprezentację każdej cyfry w rozmiarze 8x8 bitów.

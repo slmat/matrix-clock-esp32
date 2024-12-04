@@ -7,6 +7,14 @@
 
 extern spi_device_handle_t SPi;
 
+/** 
+ * @file max7219.h
+ * 
+ * @brief Biblioteka opisująca funkcje wyświetlacza MAX7219
+ * 
+ * 
+ */
+
 /**
  * @brief Funkcja inicjalizująca urządzenie na magistrali SPI.
  * 
