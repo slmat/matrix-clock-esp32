@@ -1,0 +1,54 @@
+\begin{theindex}
+
+  \item {app\_main}
+    \subitem {main.c}, \hyperpage{15}
+
+  \indexspace
+
+  \item {BLOCK\_UNTIL}
+    \subitem {Konfiguracja}, \hyperpage{8}
+
+  \indexspace
+
+  \item {Clock}, \hyperpage{9}
+    \subitem {intensity}, \hyperpage{9}
+    \subitem {ready}, \hyperpage{9}
+    \subitem {time}, \hyperpage{10}
+    \subitem {timeChars}, \hyperpage{10}
+
+  \indexspace
+
+  \item {intensity}
+    \subitem {Clock}, \hyperpage{9}
+
+  \indexspace
+
+  \item {KILL\_INSTEAD\_OF\_HALT}
+    \subitem {Konfiguracja}, \hyperpage{8}
+  \item {Konfiguracja}, \hyperpage{7}
+    \subitem {BLOCK\_UNTIL}, \hyperpage{8}
+    \subitem {KILL\_INSTEAD\_OF\_HALT}, \hyperpage{8}
+
+  \indexspace
+
+  \item {main.c}
+    \subitem {app\_main}, \hyperpage{15}
+  \item {main/include/buttons.h}, \hyperpage{11}
+  \item {main/include/defines.h}, \hyperpage{11}
+  \item {main/include/max7219.h}, \hyperpage{12}
+  \item {main/include/timeControl.h}, \hyperpage{12}
+  \item {main/main.c}, \hyperpage{14}
+
+  \indexspace
+
+  \item {ready}
+    \subitem {Clock}, \hyperpage{9}
+
+  \indexspace
+
+  \item {time}
+    \subitem {Clock}, \hyperpage{10}
+  \item {timeChars}
+    \subitem {Clock}, \hyperpage{10}
+
+\end{theindex}

@@ -1,0 +1,95 @@
+\doxysection{main/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{main/main.c@{main/main.c}}
+
+
+Główny plik programu dla aplikacji zarządzającej zegarem i przyciskami z użyciem ESP-\/\+IDF.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}esp\+\_\+log.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+heap\+\_\+caps.\+h"{}}\newline
+{\ttfamily \#include $<$freertos/\+Free\+RTOS.\+h$>$}\newline
+{\ttfamily \#include $<$freertos/task.\+h$>$}\newline
+{\ttfamily \#include $<$esp\+\_\+attr.\+h$>$}\newline
+{\ttfamily \#include "{}include/time\+Control.\+h"{}}\newline
+{\ttfamily \#include "{}include/max7219.\+h"{}}\newline
+{\ttfamily \#include "{}include/buttons.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\+\_\+main}} (void)
+\begin{DoxyCompactList}\small\item\em Główna funkcja aplikacji. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8c_ad72e44cc7c61c4e23aa25001095b685b}\label{main_8c_ad72e44cc7c61c4e23aa25001095b685b} 
+\mbox{\hyperlink{struct_clock}{Clock}} {\bfseries t}
+\begin{DoxyCompactList}\small\item\em Struktura reprezentująca zegar. \end{DoxyCompactList}\item 
+\Hypertarget{main_8c_ad36be1a106dac0133202491b6a19c0ee}\label{main_8c_ad36be1a106dac0133202491b6a19c0ee} 
+Task\+Handle\+\_\+t {\bfseries clock\+Handle}
+\begin{DoxyCompactList}\small\item\em Handler zadania zegara. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Główny plik programu dla aplikacji zarządzającej zegarem i przyciskami z użyciem ESP-\/\+IDF. 
+
+\begin{DoxyAuthor}{Author}
+Jan Kowalski 
+
+Anna Nowak 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2024-\/12-\/04 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}\index{main.c@{main.c}!app\_main@{app\_main}}
+\index{app\_main@{app\_main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{app\_main()}{app\_main()}}
+{\footnotesize\ttfamily \label{main_8c_a630544a7f0a2cc40d8a7fefab7e2fe70} 
+void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Główna funkcja aplikacji. 
+
+Funkcja inicjalizuje moduły zegara oraz przycisków, a następnie tworzy zadanie zegara na określonym rdzeniu. Na końcu wywoływana jest funkcja obsługująca aktualizację przycisków. Inicjalizacja zegara.
+
+Funkcja {\ttfamily clock\+\_\+init} inicjalizuje strukturę zegara. 
+\begin{DoxyParams}{Parameters}
+{\em t} & Wskaźnik do struktury zegara.\\
+\hline
+\end{DoxyParams}
+Inicjalizacja przycisków.
+
+Funkcja {\ttfamily buttons\+\_\+init} przygotowuje moduł obsługujący przyciski.
+
+Tworzenie zadania zegara.
+
+Zadanie zegara jest przypisane do określonego rdzenia. 
+\begin{DoxyParams}{Parameters}
+{\em dummy} & Funkcja reprezentująca zadanie zegara. \\
+\hline
+{\em \doxylink{struct_clock}{Clock}} & Nazwa zadania. \\
+\hline
+{\em DISPLAY\+\_\+\+STACK} & Rozmiar stosu zadania. \\
+\hline
+{\em \&t} & Wskaźnik do struktury zegara przekazywany do zadania. \\
+\hline
+{\em CLOCK\+\_\+\+PRIORITY} & Priorytet zadania. \\
+\hline
+{\em \&clock\+Handle} & Handler do utworzonego zadania. \\
+\hline
+{\em CORE} & Rdzeń, na którym zadanie ma działać.\\
+\hline
+\end{DoxyParams}
+Aktualizacja przycisków.
+
+Funkcja {\ttfamily buttons\+\_\+update} obsługuje aktualizację stanu przycisków. 
+\begin{DoxyParams}{Parameters}
+{\em t} & Wskaźnik do struktury zegara. \\
+\hline
+{\em clock\+Handle} & Handler do zadania zegara.\\
+\hline
+\end{DoxyParams}

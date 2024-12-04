@@ -6,14 +6,15 @@
 #include <string.h>
 #include "max7219.h"
 
-/*! \brief tablica przechowująca cyfry 0 - 9 w postacji bitowej
- *
- * W środku znajduje się graficzna reprezentacja każdej cyfry w rozmiarach 8x8 bitów
+/** 
+ * @brief Tablica przechowująca cyfry 0-9 w postaci bitowej.
  * 
- *  \note funkcja wykorzystuje możliwość zapisywania w pamięci programu aby zoptymalizować działanie
- * \note  i podobno skoro jest static const to espidf automatycznie zapisuje dane w pamięci programu i atrybut nie jest potrzebny
+ * Zawiera graficzną reprezentację każdej cyfry w rozmiarze 8x8 bitów.
+ * 
+ * @note Funkcja wykorzystuje możliwość zapisywania w pamięci programu, aby zoptymalizować działanie.
+ * @note Static const automatycznie umieszcza dane w pamięci programu w ESP-IDF, więc dodatkowy atrybut nie jest wymagany.
  */
-static const uint8_t digits[10][8] __attribute__((section(".rodata"))) =  {
+static const uint8_t digits[10][8] __attribute__((section(".rodata"))) = {
     // Cyfra 0
     {
         0b00111100,
@@ -126,104 +127,120 @@ static const uint8_t digits[10][8] __attribute__((section(".rodata"))) =  {
     },
 };
 
-/*! \brief Struktura przechowująca aktualny czas
- *
- * W środku znajduje się czas jako liczba oraz jako tablica znaków 
- * struktura przechowuje także jasność wyświetlacza i gotowość do wyświetlania 
+/**
+ * @brief Struktura przechowująca aktualny czas.
  * 
- *  \note funkcja wykorzystuje możliwość blokowania (bool ready) 
- * aby zminimalizować możliwość niepoprawnego wysyłania danych do wyświetlacza
+ * Zawiera czas jako liczby i graficzną reprezentację w formie tablicy znaków.
+ * Przechowuje również jasność wyświetlacza oraz gotowość do aktualizacji.
+ * 
+ * @note Flaga `ready` pozwala minimalizować błędy podczas wysyłania danych do wyświetlacza.
  */
-typedef struct{
-    uint8_t time[4];
-    uint8_t timeChars[4][8];
-    bool ready;
-    uint8_t intensity;
-}Clock;
+typedef struct {
+    uint8_t time[4];        /**< Aktualny czas w formacie liczbowym. */
+    uint8_t timeChars[4][8];/**< Graficzna reprezentacja czasu. */
+    bool ready;             /**< Flaga gotowości do aktualizacji. */
+    uint8_t intensity;      /**< Jasność wyświetlacza (0-15). */
+} Clock;
 
-/*! \brief Funkcja służąca do wstępnej inicjalizacji wartości zegara
- *
- * Zajmuje się nadpisaniem tablicy znaków struktury Clock aby od razu po
- * włączieniu był wyświetlany czas
+/**
+ * @brief Inicjalizuje wartości początkowe zegara.
  * 
+ * Nadpisuje tablicę znaków w strukturze Clock, aby od razu po włączeniu wyświetlać czas.
+ * 
+ * @param a Wskaźnik na strukturę zegara.
+ * @return Kod błędu w przypadku problemów.
  */
 esp_err_t clock_init(Clock *a);
 
-/*! \brief Funkcja służąca do zwiększenia intesywności świecenia wyświetlacza o 1
- *
+/**
+ * @brief Zwiększa jasność wyświetlacza o 1.
  * 
- *  \param a przyjmuje strukturę Clock którą ma zaktualizować  
+ * @param a Wskaźnik na strukturę zegara do aktualizacji.
+ * @return True, jeśli operacja się powiodła, false w przeciwnym razie.
  */
 inline bool clock_inc_intensity(Clock *a);
 
-/*! \brief Funkcja służąca do zmniejszenia intesywności świecenia wyświetlacza o 1
- *
+/**
+ * @brief Zmniejsza jasność wyświetlacza o 1.
  * 
- *  \param a przyjmuje strukturę Clock którą ma zaktualizować  
+ * @param a Wskaźnik na strukturę zegara do aktualizacji.
+ * @return True, jeśli operacja się powiodła, false w przeciwnym razie.
  */
 inline bool clock_dec_intensity(Clock *a);
 
-/*! \brief Funkcja służąca do ustawienia intesywności świecenia wyświetlacza o 1
- *
- *  \note Funkja ta posiada atrybut weak tak aby można było ją nadpisać
- *  \param a przyjmuje strukturę Clock którą ma zaktualizować
- *  \param i wartość intensywności świecenia którą chcemy osiągnąć (0-15)  
+/**
+ * @brief Ustawia jasność wyświetlacza na podaną wartość.
+ * 
+ * @param a Wskaźnik na strukturę zegara do aktualizacji.
+ * @param i Wartość intensywności (0-15).
  */
 inline void clock_set_intensity(Clock *a, const uint8_t i) __attribute__((weak));
 
-/*! \brief Funkcja służąca do zaktualizowania tablicy znaków zegara na danej pozycji
- *
- *  \param place (0-3) miejsce cyfry którą ma odświeżyć  
- *  \param a przyjmuje strukturę Clock którą ma zaktualizować  
+/**
+ * @brief Aktualizuje graficzną reprezentację cyfry w zegarze.
+ * 
+ * @param place Miejsce cyfry do odświeżenia (0-3).
+ * @param a Wskaźnik na strukturę zegara do aktualizacji.
  */
 void clock_update_timeChar(const uint8_t place, Clock *a);
 
-/*! \brief Funkcja służąca do zwiększenia liczby minut o 1
+/**
+ * @brief Zwiększa liczbę minut o 1.
  * 
- *  \param a przyjmuje strukturę Clock którą ma zaktualizować  
+ * @param a Wskaźnik na strukturę zegara do aktualizacji.
+ * @return True, jeśli operacja się powiodła, false w przeciwnym razie.
  */
 bool clock_add_minute(Clock *a);
 
-/*! \brief Funkcja służąca do zwiększenia liczby godzin o 1
+/**
+ * @brief Zwiększa liczbę godzin o 1.
  * 
- *  \param a przyjmuje strukturę Clock którą ma zaktualizować  
+ * @param a Wskaźnik na strukturę zegara do aktualizacji.
+ * @return True, jeśli operacja się powiodła, false w przeciwnym razie.
  */
 bool clock_add_hour(Clock *a);
 
-/*! \brief Funkcja służąca do mniejszenia liczby minut o 1
+/**
+ * @brief Zmniejsza liczbę minut o 1.
  * 
- *  \param a przyjmuje strukturę Clock którą ma zaktualizować  
+ * @param a Wskaźnik na strukturę zegara do aktualizacji.
  */
 void clock_sub_minute(Clock *a);
 
-/*! \brief Funkcja służąca do zmniejszenia liczby godzin o 1
+/**
+ * @brief Zmniejsza liczbę godzin o 1.
  * 
- *  \param a przyjmuje strukturę Clock którą ma zaktualizować  
+ * @param a Wskaźnik na strukturę zegara do aktualizacji.
  */
 void clock_sub_hour(Clock *a);
 
-/*! \brief Funkcja służąca do aktualizacji zegara
+/**
+ * @brief Aktualizuje czas w zegarze.
  * 
- * Wywołuje ona odpowiednio funkcję odpowiedzialne za dodanie minuty
- * i w razie potrzeby za dodanie godziny
- *  \param a przyjmuje strukturę Clock którą ma zaktualizować  
+ * Wywołuje funkcje odpowiedzialne za dodanie minuty i ewentualnie godziny.
+ * 
+ * @param a Wskaźnik na strukturę zegara do aktualizacji.
  */
 void clock_update(Clock *a);
 
-/*! \brief Funkcja która jest bezużyteczna w obecnym kodzie
+/*! \brief Funkcja, która jest nieużywana w aktualnym kodzie
  * 
- * ale została dla upamiętnienia faktu iż nie program nie chciał się
- * kompilować gdy użyłem jej jako argumentu w xtaskcreate ale gdy ją zduplikowałem
- * i nazwałem dummy, kod nie miał problemu się skompilować 
+ * Ta funkcja została zachowana w kodzie ze względu na problem z kompilacją
+ * programu, który wystąpił podczas próby użycia jej jako argumentu w funkcji
+ * `xTaskCreate`. Po zduplikowaniu i zmianie nazwy na `dummy`, kompilacja
+ * przebiegła pomyślnie.
  * 
- * \note patrz funkjcę dummy()
+ * \note Zobacz funkcję `dummy()`.
  */
 void Clock_Loop(void *); // deprecated
 
-/*! \brief Funkcja służąca jako task do odświeżania wyświetlacza co minutę
+/*! \brief Funkcja wykonująca zadanie odświeżania wyświetlacza co minutę
  * 
- *  \param a przyjmuje strukturę Clock na któej ma operować  
+ * Ta funkcja przyjmuje strukturę `Clock` i wykonuje operacje na jej danych.
+ * 
+ * \param a Wskaźnik do struktury `Clock`, na której funkcja ma operować.
  */
-void dummy(Clock *);
+void dummy(Clock *); 
+
 
 #endif

@@ -1,0 +1,27 @@
+\doxysection{buttons.\+h}
+\hypertarget{buttons_8h_source}{}\label{buttons_8h_source}\index{main/include/buttons.h@{main/include/buttons.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BUTTONS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BUTTONS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <driver/gpio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <esp\_log.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <freertos/FreeRTOS.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <freertos/task.h>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}defines.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}timeControl.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ BUTTON\_CLICKED(x)\ gpio\_get\_level(x)\ ==\ 0}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ BUTTON\_NOTCLICKED(x)\ gpio\_get\_level(x)\ ==\ 1}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{static}\ \textcolor{keyword}{enum}\ State\ \{EDIT\_MODE\_NONE,\ EDIT\_MODE\_HOURS,\ EDIT\_MODE\_MINUTES\};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ buttons\_update(\mbox{\hyperlink{struct_clock}{Clock}}\ *a,\ TaskHandle\_t\ *\mbox{\hyperlink{main_8c_ad72e44cc7c61c4e23aa25001095b685b}{t}});}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00047\ esp\_err\_t\ buttons\_init();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

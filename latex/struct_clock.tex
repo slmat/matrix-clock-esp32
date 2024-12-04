@@ -1,0 +1,64 @@
+\doxysection{Clock Struct Reference}
+\hypertarget{struct_clock}{}\label{struct_clock}\index{Clock@{Clock}}
+
+
+Struktura przechowująca aktualny czas.  
+
+
+
+
+{\ttfamily \#include $<$time\+Control.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_clock_a8fc966b9583128836458a87620ab30cc}{time}} \mbox{[}4\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_clock_af69a62eb8ff6f520c4e7a090ddfce339}{time\+Chars}} \mbox{[}4\mbox{]}\mbox{[}8\mbox{]}
+\item 
+bool \mbox{\hyperlink{struct_clock_a65cf7d7f8e531611b245355ab91fd749}{ready}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_clock_a076e47e2f3a82762ee000a8a77adccbd}{intensity}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struktura przechowująca aktualny czas. 
+
+Zawiera czas jako liczby i graficzną reprezentację w formie tablicy znaków. Przechowuje również jasność wyświetlacza oraz gotowość do aktualizacji.
+
+\begin{DoxyNote}{Note}
+Flaga {\ttfamily ready} pozwala minimalizować błędy podczas wysyłania danych do wyświetlacza. 
+\end{DoxyNote}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_clock_a076e47e2f3a82762ee000a8a77adccbd}\index{Clock@{Clock}!intensity@{intensity}}
+\index{intensity@{intensity}!Clock@{Clock}}
+\doxysubsubsection{\texorpdfstring{intensity}{intensity}}
+{\footnotesize\ttfamily \label{struct_clock_a076e47e2f3a82762ee000a8a77adccbd} 
+uint8\+\_\+t intensity}
+
+Jasność wyświetlacza (0-\/15). \Hypertarget{struct_clock_a65cf7d7f8e531611b245355ab91fd749}\index{Clock@{Clock}!ready@{ready}}
+\index{ready@{ready}!Clock@{Clock}}
+\doxysubsubsection{\texorpdfstring{ready}{ready}}
+{\footnotesize\ttfamily \label{struct_clock_a65cf7d7f8e531611b245355ab91fd749} 
+bool ready}
+
+Flaga gotowości do aktualizacji. \Hypertarget{struct_clock_a8fc966b9583128836458a87620ab30cc}\index{Clock@{Clock}!time@{time}}
+\index{time@{time}!Clock@{Clock}}
+\doxysubsubsection{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily \label{struct_clock_a8fc966b9583128836458a87620ab30cc} 
+uint8\+\_\+t time\mbox{[}4\mbox{]}}
+
+Aktualny czas w formacie liczbowym. \Hypertarget{struct_clock_af69a62eb8ff6f520c4e7a090ddfce339}\index{Clock@{Clock}!timeChars@{timeChars}}
+\index{timeChars@{timeChars}!Clock@{Clock}}
+\doxysubsubsection{\texorpdfstring{timeChars}{timeChars}}
+{\footnotesize\ttfamily \label{struct_clock_af69a62eb8ff6f520c4e7a090ddfce339} 
+uint8\+\_\+t time\+Chars\mbox{[}4\mbox{]}\mbox{[}8\mbox{]}}
+
+Graficzna reprezentacja czasu. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main/include/time\+Control.\+h\end{DoxyCompactItemize}

@@ -36,9 +36,9 @@ static enum State {EDIT_MODE_NONE, EDIT_MODE_HOURS, EDIT_MODE_MINUTES};
  */
 void buttons_update(Clock *a, TaskHandle_t *t);
 
-/*! \brief Funkcja zajmująca się inicjalizacją przycisków
+/*! \brief Funkcja inicjalizująca przyciski
  *
- *  Zajmuje się zadeklarowaniem przycisków jako pullupów na odpowiednich bitach
+ * Zajmuje się zadeklarowaniem przycisków jako pullupów na odpowiednich bitach
  * zadeklarowanych w pliku 
  * defines.h
  *  

@@ -1,0 +1,31 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Topic Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Topics}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Data Structure Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Data Structures}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Topic Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Konfiguracja}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{8}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Macro Definition Documentation}{8}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}BLOCK\_UNTIL}{8}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}KILL\_INSTEAD\_OF\_HALT}{8}{subsubsection.4.1.2.2}%
+\contentsline {chapter}{\numberline {5}Data Structure Documentation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Clock Struct Reference}{9}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{9}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Field Documentation}{9}{subsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}intensity}{9}{subsubsection.5.1.2.1}%
+\contentsline {subsubsection}{\numberline {5.1.2.2}ready}{10}{subsubsection.5.1.2.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.3}time}{10}{subsubsection.5.1.2.3}%
+\contentsline {subsubsection}{\numberline {5.1.2.4}timeChars}{10}{subsubsection.5.1.2.4}%
+\contentsline {chapter}{\numberline {6}File Documentation}{11}{chapter.6}%
+\contentsline {section}{\numberline {6.1}buttons.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{11}{section.6.1}%
+\contentsline {section}{\numberline {6.2}defines.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{11}{section.6.2}%
+\contentsline {section}{\numberline {6.3}max7219.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{12}{section.6.3}%
+\contentsline {section}{\numberline {6.4}time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Control.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{12}{section.6.4}%
+\contentsline {section}{\numberline {6.5}main/main.c File Reference}{14}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{15}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Function Documentation}{15}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}app\_main()}{15}{subsubsection.6.5.2.1}%
+\contentsline {chapter}{Index}{17}{section*.5}%
