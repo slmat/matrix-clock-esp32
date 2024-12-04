@@ -24,8 +24,8 @@
 \contentsline {section}{\numberline {6.2}defines.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{11}{section.6.2}%
 \contentsline {section}{\numberline {6.3}max7219.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{12}{section.6.3}%
 \contentsline {section}{\numberline {6.4}time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Control.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{12}{section.6.4}%
-\contentsline {section}{\numberline {6.5}main/main.c File Reference}{14}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{15}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Function Documentation}{15}{subsection.6.5.2}%
-\contentsline {subsubsection}{\numberline {6.5.2.1}app\_main()}{15}{subsubsection.6.5.2.1}%
+\contentsline {section}{\numberline {6.5}main/main.c File Reference}{13}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{14}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Function Documentation}{14}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}app\_main()}{14}{subsubsection.6.5.2.1}%
 \contentsline {chapter}{Index}{17}{section*.5}%

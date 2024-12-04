@@ -1,7 +1,7 @@
 \begin{theindex}
 
   \item {app\_main}
-    \subitem {main.c}, \hyperpage{15}
+    \subitem {main.c}, \hyperpage{14}
 
   \indexspace
 
@@ -32,12 +32,12 @@
   \indexspace
 
   \item {main.c}
-    \subitem {app\_main}, \hyperpage{15}
+    \subitem {app\_main}, \hyperpage{14}
   \item {main/include/buttons.h}, \hyperpage{11}
   \item {main/include/defines.h}, \hyperpage{11}
   \item {main/include/max7219.h}, \hyperpage{12}
   \item {main/include/timeControl.h}, \hyperpage{12}
-  \item {main/main.c}, \hyperpage{14}
+  \item {main/main.c}, \hyperpage{13}
 
   \indexspace
 

@@ -5,18 +5,18 @@
 \item 
 \Hypertarget{group___configuration_ga0cb2443a51e91f6bb4955607e6740eb4}\label{group___configuration_ga0cb2443a51e91f6bb4955607e6740eb4} 
 \#define {\bfseries MINI}
-\begin{DoxyCompactList}\small\item\em Tryb miniaturowy dla urządzenia. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em MINI oznacza urządzenie pod które skonfigurowano wyprowadzenia i działanie. Tutaj oznacza esp32c3 super mini zamiast tego mozna uzyc WROOM. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{group___configuration_ga7f824fb83ccf0d5b1717b722b84ef124}{KILL\+\_\+\+INSTEAD\+\_\+\+OF\+\_\+\+HALT}}
-\begin{DoxyCompactList}\small\item\em Tryb WROOM (do skonfigurowania w ESP-\/\+IDF). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em WROOM oznacza urządzenie pod pod które skonfigurowano wyprowadzenia i działanie. Tutaj oznacza esp32 wroom zamiast tego mozna uzyc MINI. \end{DoxyCompactList}\item 
 \Hypertarget{group___configuration_gaf68c3a5ad6ffce6c97fff154856a823d}\label{group___configuration_gaf68c3a5ad6ffce6c97fff154856a823d} 
 \#define {\bfseries SEPARATOR}
-\begin{DoxyCompactList}\small\item\em Separator danych. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em użycie tego makra sprawia że na wyświetlaczu godziny są oddzielone od minut znakiem \textquotesingle{}\+:\textquotesingle{} \end{DoxyCompactList}\item 
 \Hypertarget{group___configuration_ga2e699cd3601e5b0fec029441306d46aa}\label{group___configuration_ga2e699cd3601e5b0fec029441306d46aa} 
 \#define {\bfseries DEBOUNCE\+\_\+\+TIME\+\_\+\+MS}~10
-\begin{DoxyCompactList}\small\item\em Czas odbijania w ms. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Czas który mija pomiędzy sprawdzaniem stanu styków, w celu zapobiegnieciu ich drgań \end{DoxyCompactList}\item 
 \Hypertarget{group___configuration_gabdd9605a9848e42394a214f81b8d3b11}\label{group___configuration_gabdd9605a9848e42394a214f81b8d3b11} 
 \#define {\bfseries CLOCK\+\_\+\+PRIORITY}~2
-\begin{DoxyCompactList}\small\item\em Priorytet zegara. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Priorytet taska zegara, większy od funkcji main ponieważ chcemy mieć pewność że sprawdznie przycisków nie przeszokdzi w poprawnym odliczaniu czasu. \end{DoxyCompactList}\item 
 \Hypertarget{group___configuration_ga5d3f11f2fdf8a7e27b975291e0c2c8cc}\label{group___configuration_ga5d3f11f2fdf8a7e27b975291e0c2c8cc} 
 \#define {\bfseries MOSI}~6
 \begin{DoxyCompactList}\small\item\em Pin MOSI dla MINI. \end{DoxyCompactList}\item 
@@ -28,31 +28,31 @@
 \begin{DoxyCompactList}\small\item\em Pin CLK dla MINI. \end{DoxyCompactList}\item 
 \Hypertarget{group___configuration_gad567ea9864a3046e47ab69cdc050ecfa}\label{group___configuration_gad567ea9864a3046e47ab69cdc050ecfa} 
 \#define {\bfseries BL}~0
-\begin{DoxyCompactList}\small\item\em Poziom podświetlenia lewej części dla MINI. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Makro określające pin przycisku lewego dla MINI. \end{DoxyCompactList}\item 
 \Hypertarget{group___configuration_ga7c79586e3adaf552d11e7bfc28e1d5e6}\label{group___configuration_ga7c79586e3adaf552d11e7bfc28e1d5e6} 
 \#define {\bfseries BC}~10
-\begin{DoxyCompactList}\small\item\em Poziom podświetlenia środkowej części dla MINI. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Makro określające pin przycisku środkowego dla MINI. \end{DoxyCompactList}\item 
 \Hypertarget{group___configuration_gafa556a68b7c0fcc58cd87c5f36859f30}\label{group___configuration_gafa556a68b7c0fcc58cd87c5f36859f30} 
 \#define {\bfseries BR}~2
-\begin{DoxyCompactList}\small\item\em Poziom podświetlenia prawej części dla MINI. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Makro określające pin przycisku prawego dla MINI. \end{DoxyCompactList}\item 
 \Hypertarget{group___configuration_gaaa2a64e1806a86f073e15277d94cb94a}\label{group___configuration_gaaa2a64e1806a86f073e15277d94cb94a} 
 \#define {\bfseries CORE}~0
-\begin{DoxyCompactList}\small\item\em Rdzeń CPU dla MINI. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Rdzeń na którym ma być wykonywane zadanie zegara w przypadku użycia urządzenia MINI. \end{DoxyCompactList}\item 
 \Hypertarget{group___configuration_gae14eaaed1fe7cdf491da54a714c426b3}\label{group___configuration_gae14eaaed1fe7cdf491da54a714c426b3} 
 \#define {\bfseries MAX\+\_\+\+COUNT}~4
-\begin{DoxyCompactList}\small\item\em Maksymalna liczba urządzeń w systemie. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Maksymalna liczba wyświetlaczy podłączonych do jednego interfejsu spi, odpowiada bezpośrednio za rozmiar danych wysyłanych w pojedynczej transakcji. \end{DoxyCompactList}\item 
 \Hypertarget{group___configuration_ga18ea01c6dde589c842daa00e68e47375}\label{group___configuration_ga18ea01c6dde589c842daa00e68e47375} 
 \#define {\bfseries MAX\+\_\+\+DATA\+\_\+\+SIZE\+\_\+\+BYTES}~\mbox{\hyperlink{group___configuration_gae14eaaed1fe7cdf491da54a714c426b3}{MAX\+\_\+\+COUNT}}\texorpdfstring{$\ast$}{*}16
-\begin{DoxyCompactList}\small\item\em Maksymalny rozmiar danych w bajtach. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Maksymalny rozmiar danych w bajtach wysyłanych w jednej transakcji. \end{DoxyCompactList}\item 
 \Hypertarget{group___configuration_ga3cfd3aa62338d12609f6d65bce97e9cd}\label{group___configuration_ga3cfd3aa62338d12609f6d65bce97e9cd} 
 \#define {\bfseries ROWS}~8
 \begin{DoxyCompactList}\small\item\em Liczba wierszy w wyświetlaczu. \end{DoxyCompactList}\item 
-\Hypertarget{group___configuration_ga2412543222b968d005fe50042aa83005}\label{group___configuration_ga2412543222b968d005fe50042aa83005} 
-\#define {\bfseries DISPLAY\+\_\+\+STACK}~4096
-\begin{DoxyCompactList}\small\item\em Rozmiar stosu wyświetlacza w bajtach. \end{DoxyCompactList}\item 
+\Hypertarget{group___configuration_ga4ab7dc9545189c0d83e4bb00abcf8d3c}\label{group___configuration_ga4ab7dc9545189c0d83e4bb00abcf8d3c} 
+\#define {\bfseries CLOCK\+\_\+\+STACK}~4096
+\begin{DoxyCompactList}\small\item\em Rozmiar stosu dla zadania zegara w bajtach. \end{DoxyCompactList}\item 
 \Hypertarget{group___configuration_gaf9cfe55697c1f0d57740572bd50e6cda}\label{group___configuration_gaf9cfe55697c1f0d57740572bd50e6cda} 
 \#define {\bfseries CONDITION\+\_\+\+CHECK\+\_\+\+INTERVAL\+\_\+\+MS}~2
-\begin{DoxyCompactList}\small\item\em Interwał sprawdzania warunku w ms. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em makro używane podczas blokowania wątku w celu zapewnienia warunku, odpowiada za czas ponownego sprawdzenia. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{group___configuration_ga83c707024eaaf9bedd6f154c04ad90a9}{BLOCK\+\_\+\+UNTIL}}(action,  bool\+\_\+condition)
 \begin{DoxyCompactList}\small\item\em Makro blokujące do momentu spełnienia warunku. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -79,6 +79,8 @@
 
 Makro blokujące do momentu spełnienia warunku. 
 
+pętla while(!warunek)\{\};
+
 
 \begin{DoxyParams}{Parameters}
 {\em action} & Akcja wykonywana po spełnieniu warunku. \\
@@ -94,8 +96,8 @@ Makro blokujące do momentu spełnienia warunku.
 
 
 
-Tryb WROOM (do skonfigurowania w ESP-\/\+IDF). 
+WROOM oznacza urządzenie pod pod które skonfigurowano wyprowadzenia i działanie. Tutaj oznacza esp32 wroom zamiast tego mozna uzyc MINI. 
 
-Włączenie trybu debugowania.
+Makro odpowiedzialne za tryb debugowania, włącza komentarze w funkcjach
 
-Zatrzymanie zadania zamiast jego zabijania. 
+Opcja stworzona do debugowania, pozwala na zatrzymanie taska zegara zamiast jego restartowanie 

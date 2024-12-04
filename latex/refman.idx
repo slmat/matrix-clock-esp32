@@ -16,6 +16,6 @@
 \indexentry{main/include/defines.h@{main/include/defines.h}|hyperpage}{11}
 \indexentry{main/include/max7219.h@{main/include/max7219.h}|hyperpage}{12}
 \indexentry{main/include/timeControl.h@{main/include/timeControl.h}|hyperpage}{12}
-\indexentry{main/main.c@{main/main.c}|hyperpage}{14}
-\indexentry{main.c@{main.c}!app\_main@{app\_main}|hyperpage}{15}
-\indexentry{app\_main@{app\_main}!main.c@{main.c}|hyperpage}{15}
+\indexentry{main/main.c@{main/main.c}|hyperpage}{13}
+\indexentry{main.c@{main.c}!app\_main@{app\_main}|hyperpage}{14}
+\indexentry{app\_main@{app\_main}!main.c@{main.c}|hyperpage}{14}

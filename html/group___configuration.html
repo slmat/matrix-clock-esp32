@@ -107,22 +107,22 @@ $(function(){initNavTree('group___configuration.html',''); initResizable(true); 
 Macros</h2></td></tr>
 <tr class="memitem:ga0cb2443a51e91f6bb4955607e6740eb4" id="r_ga0cb2443a51e91f6bb4955607e6740eb4"><td class="memItemLeft" align="right" valign="top"><a id="ga0cb2443a51e91f6bb4955607e6740eb4" name="ga0cb2443a51e91f6bb4955607e6740eb4"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MINI</b></td></tr>
-<tr class="memdesc:ga0cb2443a51e91f6bb4955607e6740eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tryb miniaturowy dla urządzenia. <br /></td></tr>
+<tr class="memdesc:ga0cb2443a51e91f6bb4955607e6740eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">MINI oznacza urządzenie pod które skonfigurowano wyprowadzenia i działanie. Tutaj oznacza esp32c3 super mini zamiast tego mozna uzyc WROOM. <br /></td></tr>
 <tr class="separator:ga0cb2443a51e91f6bb4955607e6740eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7f824fb83ccf0d5b1717b722b84ef124" id="r_ga7f824fb83ccf0d5b1717b722b84ef124"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7f824fb83ccf0d5b1717b722b84ef124">KILL_INSTEAD_OF_HALT</a></td></tr>
-<tr class="memdesc:ga7f824fb83ccf0d5b1717b722b84ef124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tryb WROOM (do skonfigurowania w ESP-IDF).  <br /></td></tr>
+<tr class="memdesc:ga7f824fb83ccf0d5b1717b722b84ef124"><td class="mdescLeft">&#160;</td><td class="mdescRight">WROOM oznacza urządzenie pod pod które skonfigurowano wyprowadzenia i działanie. Tutaj oznacza esp32 wroom zamiast tego mozna uzyc MINI.  <br /></td></tr>
 <tr class="separator:ga7f824fb83ccf0d5b1717b722b84ef124"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf68c3a5ad6ffce6c97fff154856a823d" id="r_gaf68c3a5ad6ffce6c97fff154856a823d"><td class="memItemLeft" align="right" valign="top"><a id="gaf68c3a5ad6ffce6c97fff154856a823d" name="gaf68c3a5ad6ffce6c97fff154856a823d"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>SEPARATOR</b></td></tr>
-<tr class="memdesc:gaf68c3a5ad6ffce6c97fff154856a823d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Separator danych. <br /></td></tr>
+<tr class="memdesc:gaf68c3a5ad6ffce6c97fff154856a823d"><td class="mdescLeft">&#160;</td><td class="mdescRight">użycie tego makra sprawia że na wyświetlaczu godziny są oddzielone od minut znakiem ':' <br /></td></tr>
 <tr class="separator:gaf68c3a5ad6ffce6c97fff154856a823d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2e699cd3601e5b0fec029441306d46aa" id="r_ga2e699cd3601e5b0fec029441306d46aa"><td class="memItemLeft" align="right" valign="top"><a id="ga2e699cd3601e5b0fec029441306d46aa" name="ga2e699cd3601e5b0fec029441306d46aa"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>DEBOUNCE_TIME_MS</b>&#160;&#160;&#160;10</td></tr>
-<tr class="memdesc:ga2e699cd3601e5b0fec029441306d46aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Czas odbijania w ms. <br /></td></tr>
+<tr class="memdesc:ga2e699cd3601e5b0fec029441306d46aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Czas który mija pomiędzy sprawdzaniem stanu styków, w celu zapobiegnieciu ich drgań <br /></td></tr>
 <tr class="separator:ga2e699cd3601e5b0fec029441306d46aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabdd9605a9848e42394a214f81b8d3b11" id="r_gabdd9605a9848e42394a214f81b8d3b11"><td class="memItemLeft" align="right" valign="top"><a id="gabdd9605a9848e42394a214f81b8d3b11" name="gabdd9605a9848e42394a214f81b8d3b11"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>CLOCK_PRIORITY</b>&#160;&#160;&#160;2</td></tr>
-<tr class="memdesc:gabdd9605a9848e42394a214f81b8d3b11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Priorytet zegara. <br /></td></tr>
+<tr class="memdesc:gabdd9605a9848e42394a214f81b8d3b11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Priorytet taska zegara, większy od funkcji main ponieważ chcemy mieć pewność że sprawdznie przycisków nie przeszokdzi w poprawnym odliczaniu czasu. <br /></td></tr>
 <tr class="separator:gabdd9605a9848e42394a214f81b8d3b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5d3f11f2fdf8a7e27b975291e0c2c8cc" id="r_ga5d3f11f2fdf8a7e27b975291e0c2c8cc"><td class="memItemLeft" align="right" valign="top"><a id="ga5d3f11f2fdf8a7e27b975291e0c2c8cc" name="ga5d3f11f2fdf8a7e27b975291e0c2c8cc"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MOSI</b>&#160;&#160;&#160;6</td></tr>
@@ -138,39 +138,39 @@ Macros</h2></td></tr>
 <tr class="separator:ga4b355291fe6b8ba8e167ab0faa862e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad567ea9864a3046e47ab69cdc050ecfa" id="r_gad567ea9864a3046e47ab69cdc050ecfa"><td class="memItemLeft" align="right" valign="top"><a id="gad567ea9864a3046e47ab69cdc050ecfa" name="gad567ea9864a3046e47ab69cdc050ecfa"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>BL</b>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:gad567ea9864a3046e47ab69cdc050ecfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poziom podświetlenia lewej części dla MINI. <br /></td></tr>
+<tr class="memdesc:gad567ea9864a3046e47ab69cdc050ecfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makro określające pin przycisku lewego dla MINI. <br /></td></tr>
 <tr class="separator:gad567ea9864a3046e47ab69cdc050ecfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7c79586e3adaf552d11e7bfc28e1d5e6" id="r_ga7c79586e3adaf552d11e7bfc28e1d5e6"><td class="memItemLeft" align="right" valign="top"><a id="ga7c79586e3adaf552d11e7bfc28e1d5e6" name="ga7c79586e3adaf552d11e7bfc28e1d5e6"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>BC</b>&#160;&#160;&#160;10</td></tr>
-<tr class="memdesc:ga7c79586e3adaf552d11e7bfc28e1d5e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poziom podświetlenia środkowej części dla MINI. <br /></td></tr>
+<tr class="memdesc:ga7c79586e3adaf552d11e7bfc28e1d5e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makro określające pin przycisku środkowego dla MINI. <br /></td></tr>
 <tr class="separator:ga7c79586e3adaf552d11e7bfc28e1d5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafa556a68b7c0fcc58cd87c5f36859f30" id="r_gafa556a68b7c0fcc58cd87c5f36859f30"><td class="memItemLeft" align="right" valign="top"><a id="gafa556a68b7c0fcc58cd87c5f36859f30" name="gafa556a68b7c0fcc58cd87c5f36859f30"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>BR</b>&#160;&#160;&#160;2</td></tr>
-<tr class="memdesc:gafa556a68b7c0fcc58cd87c5f36859f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poziom podświetlenia prawej części dla MINI. <br /></td></tr>
+<tr class="memdesc:gafa556a68b7c0fcc58cd87c5f36859f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makro określające pin przycisku prawego dla MINI. <br /></td></tr>
 <tr class="separator:gafa556a68b7c0fcc58cd87c5f36859f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaaa2a64e1806a86f073e15277d94cb94a" id="r_gaaa2a64e1806a86f073e15277d94cb94a"><td class="memItemLeft" align="right" valign="top"><a id="gaaa2a64e1806a86f073e15277d94cb94a" name="gaaa2a64e1806a86f073e15277d94cb94a"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>CORE</b>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:gaaa2a64e1806a86f073e15277d94cb94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rdzeń CPU dla MINI. <br /></td></tr>
+<tr class="memdesc:gaaa2a64e1806a86f073e15277d94cb94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rdzeń na którym ma być wykonywane zadanie zegara w przypadku użycia urządzenia MINI. <br /></td></tr>
 <tr class="separator:gaaa2a64e1806a86f073e15277d94cb94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae14eaaed1fe7cdf491da54a714c426b3" id="r_gae14eaaed1fe7cdf491da54a714c426b3"><td class="memItemLeft" align="right" valign="top"><a id="gae14eaaed1fe7cdf491da54a714c426b3" name="gae14eaaed1fe7cdf491da54a714c426b3"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_COUNT</b>&#160;&#160;&#160;4</td></tr>
-<tr class="memdesc:gae14eaaed1fe7cdf491da54a714c426b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maksymalna liczba urządzeń w systemie. <br /></td></tr>
+<tr class="memdesc:gae14eaaed1fe7cdf491da54a714c426b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maksymalna liczba wyświetlaczy podłączonych do jednego interfejsu spi, odpowiada bezpośrednio za rozmiar danych wysyłanych w pojedynczej transakcji. <br /></td></tr>
 <tr class="separator:gae14eaaed1fe7cdf491da54a714c426b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga18ea01c6dde589c842daa00e68e47375" id="r_ga18ea01c6dde589c842daa00e68e47375"><td class="memItemLeft" align="right" valign="top"><a id="ga18ea01c6dde589c842daa00e68e47375" name="ga18ea01c6dde589c842daa00e68e47375"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_DATA_SIZE_BYTES</b>&#160;&#160;&#160;<a class="el" href="#gae14eaaed1fe7cdf491da54a714c426b3">MAX_COUNT</a>*16</td></tr>
-<tr class="memdesc:ga18ea01c6dde589c842daa00e68e47375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maksymalny rozmiar danych w bajtach. <br /></td></tr>
+<tr class="memdesc:ga18ea01c6dde589c842daa00e68e47375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maksymalny rozmiar danych w bajtach wysyłanych w jednej transakcji. <br /></td></tr>
 <tr class="separator:ga18ea01c6dde589c842daa00e68e47375"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3cfd3aa62338d12609f6d65bce97e9cd" id="r_ga3cfd3aa62338d12609f6d65bce97e9cd"><td class="memItemLeft" align="right" valign="top"><a id="ga3cfd3aa62338d12609f6d65bce97e9cd" name="ga3cfd3aa62338d12609f6d65bce97e9cd"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>ROWS</b>&#160;&#160;&#160;8</td></tr>
 <tr class="memdesc:ga3cfd3aa62338d12609f6d65bce97e9cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liczba wierszy w wyświetlaczu. <br /></td></tr>
 <tr class="separator:ga3cfd3aa62338d12609f6d65bce97e9cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2412543222b968d005fe50042aa83005" id="r_ga2412543222b968d005fe50042aa83005"><td class="memItemLeft" align="right" valign="top"><a id="ga2412543222b968d005fe50042aa83005" name="ga2412543222b968d005fe50042aa83005"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>DISPLAY_STACK</b>&#160;&#160;&#160;4096</td></tr>
-<tr class="memdesc:ga2412543222b968d005fe50042aa83005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rozmiar stosu wyświetlacza w bajtach. <br /></td></tr>
-<tr class="separator:ga2412543222b968d005fe50042aa83005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ab7dc9545189c0d83e4bb00abcf8d3c" id="r_ga4ab7dc9545189c0d83e4bb00abcf8d3c"><td class="memItemLeft" align="right" valign="top"><a id="ga4ab7dc9545189c0d83e4bb00abcf8d3c" name="ga4ab7dc9545189c0d83e4bb00abcf8d3c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CLOCK_STACK</b>&#160;&#160;&#160;4096</td></tr>
+<tr class="memdesc:ga4ab7dc9545189c0d83e4bb00abcf8d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rozmiar stosu dla zadania zegara w bajtach. <br /></td></tr>
+<tr class="separator:ga4ab7dc9545189c0d83e4bb00abcf8d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf9cfe55697c1f0d57740572bd50e6cda" id="r_gaf9cfe55697c1f0d57740572bd50e6cda"><td class="memItemLeft" align="right" valign="top"><a id="gaf9cfe55697c1f0d57740572bd50e6cda" name="gaf9cfe55697c1f0d57740572bd50e6cda"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>CONDITION_CHECK_INTERVAL_MS</b>&#160;&#160;&#160;2</td></tr>
-<tr class="memdesc:gaf9cfe55697c1f0d57740572bd50e6cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interwał sprawdzania warunku w ms. <br /></td></tr>
+<tr class="memdesc:gaf9cfe55697c1f0d57740572bd50e6cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">makro używane podczas blokowania wątku w celu zapewnienia warunku, odpowiada za czas ponownego sprawdzenia. <br /></td></tr>
 <tr class="separator:gaf9cfe55697c1f0d57740572bd50e6cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga83c707024eaaf9bedd6f154c04ad90a9" id="r_ga83c707024eaaf9bedd6f154c04ad90a9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga83c707024eaaf9bedd6f154c04ad90a9">BLOCK_UNTIL</a>(action,  bool_condition)</td></tr>
 <tr class="memdesc:ga83c707024eaaf9bedd6f154c04ad90a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makro blokujące do momentu spełnienia warunku.  <br /></td></tr>
@@ -200,9 +200,10 @@ Macros</h2></td></tr>
 <div class="line">                                            bool_condition = !bool_condition;   \</div>
 <div class="line">                                            action;                             \</div>
 <div class="line">                                            bool_condition = !bool_condition</div>
-<div class="ttc" id="agroup___configuration_html_gaf9cfe55697c1f0d57740572bd50e6cda"><div class="ttname"><a href="#gaf9cfe55697c1f0d57740572bd50e6cda">CONDITION_CHECK_INTERVAL_MS</a></div><div class="ttdeci">#define CONDITION_CHECK_INTERVAL_MS</div><div class="ttdoc">Interwał sprawdzania warunku w ms.</div><div class="ttdef"><b>Definition</b> defines.h:90</div></div>
+<div class="ttc" id="agroup___configuration_html_gaf9cfe55697c1f0d57740572bd50e6cda"><div class="ttname"><a href="#gaf9cfe55697c1f0d57740572bd50e6cda">CONDITION_CHECK_INTERVAL_MS</a></div><div class="ttdeci">#define CONDITION_CHECK_INTERVAL_MS</div><div class="ttdoc">makro używane podczas blokowania wątku w celu zapewnienia warunku, odpowiada za czas ponownego sprawd...</div><div class="ttdef"><b>Definition</b> defines.h:90</div></div>
 </div><!-- fragment -->
 <p>Makro blokujące do momentu spełnienia warunku. </p>
+<p>pętla while(!warunek){};</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">action</td><td>Akcja wykonywana po spełnieniu warunku. </td></tr>
@@ -225,9 +226,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tryb WROOM (do skonfigurowania w ESP-IDF). </p>
-<p>Włączenie trybu debugowania.</p>
-<p>Zatrzymanie zadania zamiast jego zabijania. </p>
+<p>WROOM oznacza urządzenie pod pod które skonfigurowano wyprowadzenia i działanie. Tutaj oznacza esp32 wroom zamiast tego mozna uzyc MINI. </p>
+<p>Makro odpowiedzialne za tryb debugowania, włącza komentarze w funkcjach</p>
+<p>Opcja stworzona do debugowania, pozwala na zatrzymanie taska zegara zamiast jego restartowanie </p>
 
 </div>
 </div>

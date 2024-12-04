@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.5)  4 DEC 2024 12:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.5)  4 DEC 2024 20:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -916,20 +916,29 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 8.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 8.
+LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 13.
+LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
+(Font)              scaled to size 8.09995pt on input line 13.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 10.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 13.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.29996pt on input line 10.
+(Font)              scaled to size 6.29996pt on input line 13.
 
 
 [7]
+Underfull \hbox (badness 1331) in paragraph at lines 55--55
+[]\T1/phv/m/sl/9 makro u»y-wane pod-czas blokowa-nia w¡tku w celu za-pewnienia 
+warunku, odpowiada za czas ponownego
+ []
+
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 60.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 7.19995pt on input line 67.
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 67
 .
- (C:\Users\mszym\AppData\Roaming\MiKTeX\tex/latex/psnfss\t1pcr.fd
+(C:\Users\mszym\AppData\Roaming\MiKTeX\tex/latex/psnfss\t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
@@ -965,16 +974,14 @@ Chapter 6.
 
 ]) (max7219_8h_source.tex) (time_control_8h_source.tex
 
-[12]
-
-[13]) (main_8c.tex
+[12]) (main_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--17
 
  []
 
 
 
-[14]
+[13]
 Underfull \hbox (badness 10000) detected at line 36
 [][][]
  []
@@ -986,9 +993,13 @@ Underfull \hbox (badness 10000) detected at line 41
 
 
 
-[15])
+[14])
 
-[16] (refman.ind
+[15]
+
+[16
+
+] (refman.ind
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 22.39185pt on input line 1.
 
@@ -996,7 +1007,6 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 
 
 [17
-
 
 
 
@@ -1009,13 +1019,13 @@ Package rerunfilecheck Info: File `refman.out' has not changed.
 (rerunfilecheck)             Checksum: 4F4C5E3A4E51A90F44FF0C8F8EEFC488;4817.
  ) 
 Here is how much of TeX's memory you used:
- 18102 strings out of 473701
- 290405 string characters out of 5729316
- 714486 words of memory out of 5000000
- 40744 multiletter control sequences out of 15000+600000
- 608875 words of font info for 89 fonts, out of 8000000 for 9000
+ 18106 strings out of 473701
+ 290458 string characters out of 5729316
+ 713486 words of memory out of 5000000
+ 40747 multiletter control sequences out of 15000+600000
+ 609226 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,16n,117p,433b,749s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,14n,117p,433b,749s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Progra
 m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX/fonts/type
@@ -1024,7 +1034,7 @@ eX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX/fonts/type
  Files/MiKTeX/fonts/type1/urw/helvetic/uhvb8ac.pfb><C:/Program Files/MiKTeX/fon
 ts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helve
 tic/uhvro8a.pfb>
-Output written on refman.pdf (21 pages, 163838 bytes).
+Output written on refman.pdf (21 pages, 165115 bytes).
 PDF statistics:
  410 PDF objects out of 1000 (max. 8388607)
  89 named destinations out of 1000 (max. 500000)
